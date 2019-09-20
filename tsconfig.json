@@ -17,7 +17,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-animation": [
+        "projects/ng-animation/src/public-api",
+        "dist/ng-animation"
+      ],
+      "ng-animation/*": [
+        "dist/ng-animation/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
