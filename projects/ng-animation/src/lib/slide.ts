@@ -42,7 +42,7 @@ export const slideLeftStyle = animation(
       transform: 'translate({{ x }}, {{ y }})'
     }),
     {
-      params: {                         //default 
+      params: {
         opacity: 0,
         x: '-50px',
         y: '0',
@@ -50,12 +50,12 @@ export const slideLeftStyle = animation(
     }
   )
 
-export const slideLeftEnter = animation([ slideLeftStyle, animIn ]);   // slideStyle => *
-export const slideLeftLeave = animation([ animOut, slideLeftStyle ]); // * => slideStyle
+export const slideLeftEnter = animation([ slideLeftStyle, animIn ]);
+export const slideLeftLeave = animation([ animOut, slideLeftStyle ]);
 
 export const slideLeft = trigger('slideLeft', [
-    transition(':enter', slideLeftEnter),     // When <element @fade> enters the page
-    transition(':leave', slideLeftLeave),    // When <element @fade> leaves the page
+    transition(':enter', slideLeftEnter),
+    transition(':leave', slideLeftLeave),
   ]);
 
   // SLIDE RIGHT 
@@ -66,7 +66,7 @@ export const slideLeft = trigger('slideLeft', [
       transform: 'translate({{ x }}, {{ y }})'
     }),
     {
-      params: {                         //default 
+      params: { 
         opacity: 0,
         x: '50px',
         y: '0',
@@ -74,12 +74,12 @@ export const slideLeft = trigger('slideLeft', [
     }
   )
 
-export const slideRightEnter = animation([ slideRightStyle, animIn ]);   // slideStyle => *
-export const slideRightLeave = animation([ animOut, slideRightStyle ]); // * => slideStyle
+export const slideRightEnter = animation([ slideRightStyle, animIn ]); 
+export const slideRightLeave = animation([ animOut, slideRightStyle ]); 
 
 export const slideRight = trigger('slideRight', [
-    transition(':enter', slideRightEnter),     // When <element @fade> enters the page
-    transition(':leave', slideRightLeave),    // When <element @fade> leaves the page
+    transition(':enter', slideRightEnter),   
+    transition(':leave', slideRightLeave),   
   ]);
 
 // SLIDE DOWN
@@ -90,7 +90,7 @@ export const slideDownStyle = animation(
       transform: 'translate({{ x }}, {{ y }})'
     }),
     {
-      params: {                         //default 
+      params: {                          
         opacity: 0,
         x: '0',
         y: '-50px',
@@ -98,12 +98,12 @@ export const slideDownStyle = animation(
     }
   )
 
-export const slideDownEnter = animation([ slideDownStyle, animIn ]);   // slideStyle => *
-export const slideDownLeave = animation([ animOut, slideDownStyle ]); // * => slideStyle
+export const slideDownEnter = animation([ slideDownStyle, animIn ]);   
+export const slideDownLeave = animation([ animOut, slideDownStyle ]); 
 
 export const slideDown = trigger('slideDown', [
-    transition(':enter', slideDownEnter),     // When <element @fade> enters the page
-    transition(':leave', slideDownLeave),    // When <element @fade> leaves the page
+    transition(':enter', slideDownEnter),     
+    transition(':leave', slideDownLeave),    
   ]);
 
 
