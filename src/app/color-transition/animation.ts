@@ -1,4 +1,4 @@
-import { useAnimation, trigger, transition } from '@angular/animations';
+import { useAnimation, trigger, transition, query, stagger } from '@angular/animations';
 import { fadeInAnim, FadeParams } from 'ng-animation';
 
 // Custom parameters
@@ -9,9 +9,15 @@ const fadeParams: Partial<FadeParams> = {
 
 // Custom animation
 const useFadeIn = useAnimation(fadeInAnim, { params: fadeParams })
-export const fadeIn = trigger('fadeIn', [
-  transition(':enter', useFadeIn)
+const queryEnter = query('li', [
+  stagger(300, useFadeIn)
 ]);
+
+export const staggerFadeIn = trigger('staggerFadeIn', [
+  transition(':enter', queryEnter),
+]);
+
+
 
 // const slideParams: Partial<SlideParams> = {
 //     duration: '6s',

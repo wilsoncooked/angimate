@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeIn } from './animation';
-import { slideUp, slideLeft, slideRight, slideDown } from 'ng-animation'
+import { fadeIn, slideUp, slideDown, slideRight, slideLeft, zoomIn, zoomUp, zoomDown } from 'ng-animation'
+import { staggerFadeIn } from './animation'
 
 @Component({
   selector: 'color-transition',
-  animations: [ fadeIn, slideUp, slideLeft, slideRight, slideDown ],
+  animations: [ fadeIn, slideUp, slideDown, slideRight, slideLeft, staggerFadeIn, zoomIn,
+    zoomUp, zoomDown ],
   templateUrl: './color-transition.component.html',
   styleUrls: ['./color-transition.component.scss']
 })

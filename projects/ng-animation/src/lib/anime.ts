@@ -1,4 +1,5 @@
 import { animation, animate, useAnimation } from '@angular/animations';
+import { Easing } from './easing';
 
 
 export interface AnimeParams {
@@ -11,13 +12,13 @@ export const anim = animation(
   animate('{{ duration }} {{ delay }} {{ easing }}'), // Animation
   {
     params: {
-      duration: '300ms',
+      duration: '2s',
       delay: '0s',
-      easing: 'ease-in-out'
+      easing: Easing.easeInOutcubic,
     }
   }
 );
 
 /** Animation something in the page */
-export const animIn = useAnimation(anim, { params: { easing: 'ease-out' }})
-export const animOut = useAnimation(anim, { params: { easing: 'ease-in' }})
+export const animIn = useAnimation(anim, { params: { easing: Easing.easeOutcubic }})
+export const animOut = useAnimation(anim, { params: { easing: Easing.easeIncubic }})

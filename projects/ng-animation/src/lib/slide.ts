@@ -3,15 +3,15 @@ import { animIn, animOut, AnimeParams } from './anime';
 
 // Params
 export interface SlideParams extends AnimeParams {
-    opacity: number;
-    x: string;
-    y: string;
-  }
+  opacity: number;
+  x: string;
+  y: string;
+}
+
+// S L I D E   U P //
 
 // Style
-
-export const slideStyle = (x, y) => {
-    return animation(
+export const slideUpStyle = animation(
         style({ 
           opacity: '{{ opacity }}',
           transform: 'translate({{ x }}, {{ y }})'
@@ -19,56 +19,100 @@ export const slideStyle = (x, y) => {
         {
           params: {                          
             opacity: 0,
-            x,
-            y,
+            x: '0',
+            y: '50px'
           }
         }
       )
-}
 
 // Animation
-export const transEnter = (styleName) => {
-    return transition(':enter', animation([ styleName, animIn ]))
-}
-
-export const transExit = (styleName) => {
-    return transition(':leave', animation([ animOut , styleName ]))
-}
-
-// SLIDE UP
-export const slideUpStyle = slideStyle(0, '50px');
+export const slideUpInAnim = animation([ slideUpStyle, animIn ]); 
+export const slideUpOutAnim = animation([ animOut, slideUpStyle ]); 
 
 // Trigger with transition
 export const slideUp = trigger('slideUp', [
-    transEnter(slideUpStyle),    
-    transExit(slideUpStyle),    
-    ]); 
+  transition(':enter', slideUpInAnim),  
+  transition(':leave', slideUpOutAnim), 
+]);
 
-// SLIDE LEFT
+// S L I D E   D O W N //
 
-export const slideLeftStyle = slideStyle('-50px', 0);
+// Style
+export const slideDownStyle = animation(
+  style({ 
+    opacity: '{{ opacity }}',
+    transform: 'translate({{ x }}, {{ y }})'
+  }),
+  {
+    params: {                          
+      opacity: 0,
+      x: '0',
+      y: '-50px'
+    }
+  }
+)
 
+// Animation
+export const slideDownInAnim = animation([ slideDownStyle, animIn ]); 
+export const slideDownOutAnim = animation([ animOut, slideDownStyle ]); 
 
-export const slideLeft = trigger('slideLeft', [
-    transEnter(slideLeftStyle),    
-    transExit(slideLeftStyle),    
-    ]); 
-
-  // SLIDE RIGHT 
-
-  export const slideRightStyle = slideStyle('50px', 0);
-
-  export const slideRight = trigger('slideRight', [
-    transEnter(slideRightStyle),    
-    transExit(slideRightStyle),    
-    ]); 
-
-// SLIDE DOWN
-
-export const slideDownStyle = slideStyle(0, '-50px');
-
+// Trigger with transition
 export const slideDown = trigger('slideDown', [
-    transEnter(slideDownStyle),    
-    transExit(slideDownStyle),    
-    ]); 
+transition(':enter', slideDownInAnim),  
+transition(':leave', slideDownOutAnim), 
+]);
+
+// S L I D E   F R O M   L E F T //
+
+// Style
+export const slideLeftStyle = animation(
+  style({ 
+    opacity: '{{ opacity }}',
+    transform: 'translate({{ x }}, {{ y }})'
+  }),
+  {
+    params: {                          
+      opacity: 0,
+      x: '-50px',
+      y: '0'
+    }
+  }
+)
+
+// Animation
+export const slideLeftInAnim = animation([ slideLeftStyle, animIn ]); 
+export const slideLeftOutAnim = animation([ animOut, slideLeftStyle ]); 
+
+// Trigger with transition
+export const slideLeft = trigger('slideLeft', [
+transition(':enter', slideLeftInAnim),  
+transition(':leave', slideLeftOutAnim), 
+]);
+
+// S L I D E   F R O M   R I G H T //
+
+// Style
+export const slideRightStyle = animation(
+  style({ 
+    opacity: '{{ opacity }}',
+    transform: 'translate({{ x }}, {{ y }})'
+  }),
+  {
+    params: {                          
+      opacity: 0,
+      x: '50px',
+      y: '0'
+    }
+  }
+)
+
+// Animation
+export const slideRightInAnim = animation([ slideRightStyle, animIn ]); 
+export const slideRightOutAnim = animation([ animOut, slideRightStyle ]); 
+
+// Trigger with transition
+export const slideRight = trigger('slideRight', [
+transition(':enter', slideRightInAnim),  
+transition(':leave', slideRightOutAnim), 
+]);
 

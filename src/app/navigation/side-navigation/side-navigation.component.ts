@@ -11,5 +11,5 @@ export class SideNavigationComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  opened = true;
 }
