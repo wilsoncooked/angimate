@@ -7,12 +7,20 @@
       <mat-list-item>
         <a routerLink="color-transition">Color Transition</a>
       </mat-list-item>
+      <mat-list-item>
+        <a routerLink="zoom">Zoom</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="slide">Slide</a>
+      </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <button mat-icon-button (click)="!(opened = !opened)">
       <mat-icon>menu</mat-icon>
     </button>
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

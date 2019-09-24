@@ -15,11 +15,6 @@ export const enum Easing {
   easeOutCirc = 'cubic-bezier(0.075, 0.82, 0.165, 1)',
   easeInOutCirc = 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
 
-  /*TODO: search how to use this format https://easings.net/#easeInElastic */
-  // easeInElastic = '',
-  // easeOutElastic = '',
-  // easeInOutElastic = '',
-
   easeInQuad = 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
   easeOutQuad = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
   easeInOutQuad = 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
@@ -35,6 +30,11 @@ export const enum Easing {
   easeInBack = 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
   easeOutBack = 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   easeInOutBack = 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+
+/*TODO: search how to use this format https://easings.net/#easeInElastic */
+  // easeInElastic = '',
+  // easeOutElastic = '',
+  // easeInOutElastic = '',
 
   /*TODO: search how to use this format https://easings.net/#easeInBounce */
   // easeInBounce = '',

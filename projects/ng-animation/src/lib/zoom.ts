@@ -79,4 +79,49 @@ export const zoomDownStyle = animation(
     transition(':enter', animation([ zoomDownStyle, animIn ])),
     transition(':leave', animation([ animOut, zoomDownStyle ])), 
   ]);
+
+    // Z O O M   L E F T //
+
+export const zoomLeftStyle = animation(
+    style({ 
+        opacity: '{{ opacity }}',
+        transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
+      }),    
+      { 
+        params: { 
+          opacity: '0',
+          scale: '0.1',
+          x: '-50px',
+          y: '0'      
+          }
+      }  
+  );
   
+  export const zoomLeft = trigger('zoomLeft', [
+    transition(':enter', animation([ zoomLeftStyle, animIn ])),
+    transition(':leave', animation([ animOut, zoomLeftStyle ])), 
+  ]);
+  
+    // Z O O M   R I G H T //
+
+    export const zoomRightStyle = animation(
+        style({ 
+            opacity: '{{ opacity }}',
+            transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
+          }),    
+          { 
+            params: { 
+              opacity: '0',
+              scale: '0.1',
+              x: '50px',
+              y: '0'      
+              }
+          }  
+      );
+      
+      export const zoomRight = trigger('zoomRight', [
+        transition(':enter', animation([ zoomRightStyle, animIn ])),
+        transition(':leave', animation([ animOut, zoomRightStyle ])), 
+      ]);
+      
+      
