@@ -1,19 +1,22 @@
 <div class="example-button-row">
-  <button @fadeIn mat-raised-button>
-    Fade
-  </button>
-  <button @slideUp mat-raised-button color="primary">
-    Slide Up
-  </button>
-  <button @slideDown mat-raised-button color="accent">Slide Down</button>
-  <button @slideLeft mat-raised-button color="warn">Slide Left</button>
-  <button @slideRight mat-raised-button disabled>Slide Right</button>
-  <a @zoomIn mat-raised-button routerLink=".">Link</a>
-  <button @zoomIn mat-raised-button color="primary">
-    Zoom In
-  </button>
-  <button @zoomUp mat-raised-button color="accent">Zoom Up</button>
-  <button @zoomRight mat-raised-button color="accent">Zoom Right</button>
+  <ng-container *ngIf="isVisible">
+    <button @fadeIn mat-raised-button>
+      Fade
+    </button>
+    <button @slideUp mat-raised-button color="primary">
+      Slide Up
+    </button>
+    <button @slideDown mat-raised-button color="accent">Slide Down</button>
+    <button @slideLeft mat-raised-button color="warn">Slide Left</button>
+    <button @slideRight mat-raised-button disabled>Slide Right</button>
+    <a @zoomIn mat-raised-button routerLink=".">Link</a>
+    <button @zoomIn mat-raised-button color="primary">
+      Zoom In
+    </button>
+    <button @zoomUp mat-raised-button color="accent">Zoom Up</button>
+    <button @zoomRight mat-raised-button color="accent">Zoom Right</button>
+  </ng-container>
+  <button mat-button (click)="toggle()">Toggle Visible</button>
   <div>
     <ul @staggerFadeIn>
       <li>First</li>

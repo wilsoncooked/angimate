@@ -50,13 +50,13 @@ export const zoomUpStyle = animation(
       }  
   );
   
-  export const zoomInUpAnim = animation([ zoomUpStyle, animIn ]); 
-  export const zoomOutUpAnim = animation([ animOut, zoomUpStyle ]); 
-  
   export const zoomUp = trigger('zoomUp', [
-    transition(':enter', zoomInUpAnim),
-    transition(':leave', zoomOutUpAnim), 
+    transition(':enter', animation([ zoomUpStyle, animIn ])),
+    transition(':leave', animation([ animOut, zoomUpStyle ])), 
   ]);
+
+  // Animation
+
 
   // Z O O M   D O W N //
 

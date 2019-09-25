@@ -89,6 +89,8 @@ transition(':enter', slideLeftInAnim),
 transition(':leave', slideLeftOutAnim), 
 ]);
 
+
+
 // S L I D E   F R O M   R I G H T //
 
 // Style

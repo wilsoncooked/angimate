@@ -1,37 +1,38 @@
-import { animation, trigger, transition, style, query, animate, group, animateChild } from '@angular/animations';
+import { animation, trigger, transition, style, query, animate, group, animateChild,  } from '@angular/animations';
 import { animIn, animOut, AnimeParams } from './anime';
 
+const preparePage = [
+  style({ position: 'relative' }),
+  query(':enter, :leave', [
+    style({
+      position: 'absolute',
+      top: 0,
+      left: 0
+    })
+  ], { optional: true }),
+];
+
 export const slideInAnimation =
-  trigger('routeAnimations', [
+  trigger('slideInAnimation', [
     transition('* <=> *', [
-      style({ position: 'relative' }),
-      query(':enter, :leave', [
-        style({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          opacity: 1,
-          backgroundColor: 'red',
-        })
-      ]),
+      ...preparePage,
       query(':enter', [
-        style({ left: '-100%', opacity: 0})
-      ]),
-      query(':leave', animateChild()),
+        style({
+          opacity: 0,
+          transform: 'scale(0.5, 0.5)',
+        })
+      ], { optional: true }),
       group([
         query(':leave', [
-          animate('2s ease-out', style({ left: '100%', opacity: 0}))
-        ]),
+          animate('1s ease-out', style({opacity: 0}))
+        ], { optional: true }),
         query(':enter', [
-          animate('2s ease-out', style({ left: '0%', opacity: 1, backgroundColor: 'blue'}))
-        ])
+          animate('1s ease-out', style({opacity: 1, transform: 'scale(1, 1)'}))
+        ], { optional: true }),
       ]),
-      query(':enter', animateChild()),
+      query('@*', animateChild(), {optional: true}),
+
+      // query(':enter', animateChild(), { optional: true }),
     ])
   ]);
 
-  // need to have relative and absolute positioning for the pages to stack upon eachother in a set predictable way
-
-  // the transition style is the first state
-  // the animate style is at the end state

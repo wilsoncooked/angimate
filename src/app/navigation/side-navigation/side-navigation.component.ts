@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { slideInAnimation } from 'ng-animation';
+import { slideInAnimation, slideUp } from 'ng-animation';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'side-navigation',
   animations: [
-    slideInAnimation
+    slideInAnimation, slideUp
   ],
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.scss']
@@ -18,7 +18,8 @@ export class SideNavigationComponent implements OnInit {
   }
   opened = false;
 
+
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

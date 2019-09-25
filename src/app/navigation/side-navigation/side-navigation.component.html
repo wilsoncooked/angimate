@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" [(opened)]="opened">
+  <mat-sidenav mode="side" #sidenav>
     <mat-list>
       <mat-list-item>
         <a routerLink="">Home</a>
@@ -16,10 +16,10 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-icon-button (click)="!(opened = !opened)">
+    <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div [@routeAnimations]="prepareRoute(outlet)">
+    <div [@slideInAnimation]="prepareRoute(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
   </mat-sidenav-content>
