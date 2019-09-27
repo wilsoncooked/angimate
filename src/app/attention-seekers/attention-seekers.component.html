@@ -2,12 +2,12 @@
 
 <h3 @flash>FLASH FLASH</h3>
 
-<section
-  [fade]="fadeParams"
-  [fadeTimingStyle]="'2s cubic-bezier(1,.03,0,.8)'"
-  [delayFade]="delay"
->
+<section [fade]="fadeParams" #fade>
   <h1>One</h1>
   <h1>Two</h1>
   <h1>Three</h1>
 </section>
+
+<button mat-button (click)="play()">Play</button>
+<button mat-button (click)="pause()">Pause</button>
+<a (click)="goTo()">Navigate</a>

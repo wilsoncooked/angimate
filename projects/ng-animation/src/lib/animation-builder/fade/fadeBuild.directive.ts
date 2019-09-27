@@ -1,44 +1,60 @@
 import { ElementRef, Directive, Input, OnInit } from '@angular/core';
-import { AnimationBuilder, AnimationPlayer } from '@angular/animations';
-import { fadeTemplate } from './fadeTemplate'
+import { AnimationBuilder, AnimationPlayer, AnimationFactory } from '@angular/animations';
+import { fadeTemplate } from './fadeTemplate';
+import { FadeParams } from '../../fade';
+import { AnimationFactoryParams } from '../types';
 
 @Directive({
   selector: '[fade]'
 })
 export class FadeDirective implements OnInit {
 
-  private _player: AnimationPlayer;
+  private factory: AnimationFactory;
+  public player: AnimationPlayer;
 
-  @Input() fadeTimingStyle: string;
-  @Input() fadeChild: string;
-  @Input('delayFade') fadeDelay: string;
+  @Input() set query(child: string) {
+    this.createFactory({ child });
+    this.createPlayer();
+  }
+
+  @Input() set stagger(debounce: string) {
+    this.createFactory({ debounce });
+    this.createPlayer();
+  }
 
     // before was fadeParams but threw and error???
-  @Input('fade') set params(params: any) {
-    if (this._player) {
-        this._player.destroy();
-        }
+  @Input('fade') set params(params: Partial<FadeParams> & Partial<AnimationFactoryParams> = {}) {
+    const { child, debounce } = params;
+    if (!this.factory || child || debounce) {
+      this.createFactory({ child, debounce });
     }
+    this.createPlayer(params);
+  }
 
   constructor(private el: ElementRef, private builder: AnimationBuilder) {}
 
   ngOnInit () {
-    const timingStyle = this.fadeTimingStyle ?  this.fadeTimingStyle : '300ms' 
-    const child = this.fadeChild ? this.fadeChild : 'h1'
-    const delay = this.fadeDelay ? this.fadeDelay : '300ms'
-    
-    const fadeAnimation = fadeTemplate({ child, delay, timingStyle });
-    const factory = this.builder.build(fadeAnimation);
-
-    this._player = factory.create(this.el.nativeElement, this.params)
-    this._player.play();
   }
 
   ngOnDestroy() {
       // this is when the whole com
-    //   this._player.destroy()
+    //   this.player.destroy()
   }
 
+  private createFactory(params: Partial<AnimationFactoryParams> = {}) {
+    const animation = fadeTemplate(params);
+    this.factory = this.builder.build(animation);
+  }
+
+  private createPlayer(params: Partial<FadeParams> = {}) {
+    if (!this.factory) {
+      throw new Error('No factory available. Build one first');
+    }
+    if (this.player) {
+      this.player.destroy();
+    }
+    this.player = this.factory.create(this.el.nativeElement, { params });
+  }
 }
 
 // AnimationBuilder is an injectible animation service

@@ -1,5 +1,5 @@
 import { animation, trigger, transition, style, animate } from '@angular/animations';
-import { AnimeParams, animInParams, animOutParams } from './anime';
+import { AnimeParams, animInParams, animOutParams } from '../../anime';
 
 // Params
 export interface SlideParams extends AnimeParams {

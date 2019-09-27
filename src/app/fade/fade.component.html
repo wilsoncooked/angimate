@@ -1,7 +1,7 @@
 <div classname="fade-wrapper">
   <button mat-button (click)="toggle()">Toggle Visible</button>
   <ng-container *ngIf="isVisible">
-    <p @fade>FADE</p>
+    <!-- <p @fade>FADE</p> -->
     <p @fadeUp>FADE UP</p>
     <p @fadeDown>FADE DOWN</p>
     <p @fadeLeft>FADE LEFT</p>
@@ -9,7 +9,7 @@
   </ng-container>
 </div>
 
-<div fade>
+<div>
   <!-- This is how you use the directive -->
   <p>Hello World</p>
 </div>
