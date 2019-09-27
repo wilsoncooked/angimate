@@ -1,127 +1,81 @@
-import { animation, trigger, transition, style } from '@angular/animations';
-import { animIn, animOut, AnimeParams } from './anime';
+import { animation, trigger, transition, style, animate } from '@angular/animations';
+import { AnimeParams, animInParams, animOutParams } from './anime';
 
 
 // Params
 export interface ZoomParams extends AnimeParams {
   opacity: number;
-  scale: string;
-  x: string;
-  y: string;
+  scale: string | number;
+  x: string | number;
+  y: string | number;
 }
+
+// Zoom Style
+export const zoomStyle = 
+  style({ 
+    opacity: '{{ opacity }}',
+    transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
+    });
+
 
 // Z O O M   I N //
 
-export const zoomStyle = animation(
-  style({ 
-      opacity: '{{ opacity }}',
-      transform: 'scale({{ scale }})'
-    }),    
-    { 
-      params: { 
-        opacity: '0',
-        scale: '0.1'       
-        }
-    }  
-);
+// Default Params
+const zoomParams = { opacity: 0, scale: 0.2, x: 0, y: 0 };
+const zoomInParams = { ...zoomParams, ...animInParams };
+const zoomOutParams = { ...zoomParams, ...animOutParams };
 
-export const zoomInAnim = animation([ zoomStyle, animIn ]); 
-export const zoomOutAnim = animation([ animOut, zoomStyle ]); 
-
+// Trigger with transition & animation
 export const zoomIn = trigger('zoomIn', [
-  transition(':enter', zoomInAnim),
-  transition(':leave', zoomOutAnim), 
+  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInParams})),
+  transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutParams})), 
 ]);
+
 
 // Z O O M   U P //
 
-export const zoomUpStyle = animation(
-    style({ 
-        opacity: '{{ opacity }}',
-        transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
-      }),    
-      { 
-        params: { 
-          opacity: '0',
-          scale: '0.1',
-          x: '0',
-          y: '50px'      
-          }
-      }  
-  );
+const zoomUpParams = { opacity: 0, scale: '0.2', x: '0', y: '50px' };
+const zoomInUpParams = { ...zoomUpParams, ...animInParams };
+const zoomOutUpParams = { ...zoomUpParams, ...animOutParams };
+
+// Trigger with transition & animation
+export const zoomUp = trigger('zoomUp', [
+  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInUpParams})),
+  transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutUpParams})), 
+]);
+
+
+// Z O O M   D O W N //
+
+const zoomDownParams = { opacity: 0, scale: '0.2', x: '0', y: '-50px' };
+const zoomInDownParams = { ...zoomDownParams, ...animInParams };
+const zoomOutDownParams = { ...zoomDownParams, ...animOutParams };
+
+// Trigger with transition & animation
+export const zoomDown = trigger('zoomDown', [
+  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInDownParams})),
+  transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutDownParams})), 
+]);
+
+
+// Z O O M   L E F T //
+
+const zoomLeftParams = { opacity: 0, scale: '0.2', x: '-50px', y: '0' };
+const zoomInLeftParams = { ...zoomLeftParams, ...animInParams };
+const zoomOutLeftParams = { ...zoomLeftParams, ...animOutParams };
   
-  export const zoomUp = trigger('zoomUp', [
-    transition(':enter', animation([ zoomUpStyle, animIn ])),
-    transition(':leave', animation([ animOut, zoomUpStyle ])), 
-  ]);
-
-  // Animation
-
-
-  // Z O O M   D O W N //
-
-export const zoomDownStyle = animation(
-    style({ 
-        opacity: '{{ opacity }}',
-        transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
-      }),    
-      { 
-        params: { 
-          opacity: '0',
-          scale: '0.1',
-          x: '0',
-          y: '-50px'      
-          }
-      }  
-  );
+export const zoomLeft = trigger('zoomLeft', [
+  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInLeftParams})),
+  transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutLeftParams})), 
+]);
   
-  export const zoomDown = trigger('zoomDown', [
-    transition(':enter', animation([ zoomDownStyle, animIn ])),
-    transition(':leave', animation([ animOut, zoomDownStyle ])), 
-  ]);
+// Z O O M   R I G H T //
 
-    // Z O O M   L E F T //
-
-export const zoomLeftStyle = animation(
-    style({ 
-        opacity: '{{ opacity }}',
-        transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
-      }),    
-      { 
-        params: { 
-          opacity: '0',
-          scale: '0.1',
-          x: '-50px',
-          y: '0'      
-          }
-      }  
-  );
+const zoomRightParams = { opacity: 0, scale: '0.2', x: '-50px', y: '0' };
+const zoomInRightParams = { ...zoomRightParams, ...animInParams };
+const zoomOutRightParams = { ...zoomRightParams, ...animOutParams };
   
-  export const zoomLeft = trigger('zoomLeft', [
-    transition(':enter', animation([ zoomLeftStyle, animIn ])),
-    transition(':leave', animation([ animOut, zoomLeftStyle ])), 
-  ]);
-  
-    // Z O O M   R I G H T //
-
-    export const zoomRightStyle = animation(
-        style({ 
-            opacity: '{{ opacity }}',
-            transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
-          }),    
-          { 
-            params: { 
-              opacity: '0',
-              scale: '0.1',
-              x: '50px',
-              y: '0'      
-              }
-          }  
-      );
-      
-      export const zoomRight = trigger('zoomRight', [
-        transition(':enter', animation([ zoomRightStyle, animIn ])),
-        transition(':leave', animation([ animOut, zoomRightStyle ])), 
-      ]);
-      
-      
+export const zoomRight = trigger('zoomRight', [
+  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInRightParams})),
+  transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutRightParams})), 
+]);

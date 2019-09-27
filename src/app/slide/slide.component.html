@@ -1,1 +1,36 @@
-<p>slide works!</p>
+<div class="example-button-row">
+  <button mat-button (click)="toggle()">Toggle Visible</button>
+  <ng-container *ngIf="isVisible">
+    <button
+      @slideUp
+      mat-icon-button
+      aria-label="Example icon-button with a heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      @slideDown
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon-button with a heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      @slideLeft
+      mat-icon-button
+      color="accent"
+      aria-label="Example icon-button with a heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      @slideRight
+      mat-icon-button
+      color="warn"
+      aria-label="Example icon-button with a heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </ng-container>
+</div>

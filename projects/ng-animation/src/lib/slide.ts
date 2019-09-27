@@ -1,120 +1,72 @@
-import { animation, trigger, transition, style } from '@angular/animations';
-import { animIn, animOut, AnimeParams } from './anime';
+import { animation, trigger, transition, style, animate } from '@angular/animations';
+import { AnimeParams, animInParams, animOutParams } from './anime';
 
 // Params
 export interface SlideParams extends AnimeParams {
   opacity: number;
-  x: string;
-  y: string;
+  x: string | number;
+  y: string | number;
 }
+
+// Slide Style
+export const slideStyle = 
+  style({
+    transform: 'translate({{ x }}, {{ y }})'
+  })
+
 
 // S L I D E   U P //
 
-// Style
-export const slideUpStyle = animation(
-        style({ 
-          opacity: '{{ opacity }}',
-          transform: 'translate({{ x }}, {{ y }})'
-        }),
-        {
-          params: {                          
-            opacity: 0,
-            x: '0',
-            y: '50px'
-          }
-        }
-      )
+// Default Params
+const slideUpParams = { x: 0, y: '50px' };
+const slideInUpParams = { ...slideUpParams, ...animInParams };
+const slideOutUpParams = { ...slideUpParams, ...animOutParams };
 
-// Animation
-export const slideUpInAnim = animation([ slideUpStyle, animIn ]); 
-export const slideUpOutAnim = animation([ animOut, slideUpStyle ]); 
-
-// Trigger with transition
+// Trigger with transition & animation
 export const slideUp = trigger('slideUp', [
-  transition(':enter', slideUpInAnim),  
-  transition(':leave', slideUpOutAnim), 
+  transition(':enter', animation([ slideStyle, animate('300ms') ], { params: slideInUpParams})),
+  transition(':leave', animation([ animate('300ms', slideStyle)], { params: slideOutUpParams})), 
 ]);
+
 
 // S L I D E   D O W N //
 
-// Style
-export const slideDownStyle = animation(
-  style({ 
-    opacity: '{{ opacity }}',
-    transform: 'translate({{ x }}, {{ y }})'
-  }),
-  {
-    params: {                          
-      opacity: 0,
-      x: '0',
-      y: '-50px'
-    }
-  }
-)
+// Default Params
+const slideDownParams = { x: 0, y: '-50px' };
+const slideInDownParams = { ...slideDownParams, ...animInParams };
+const slideOutDownParams = { ...slideDownParams, ...animOutParams };
 
-// Animation
-export const slideDownInAnim = animation([ slideDownStyle, animIn ]); 
-export const slideDownOutAnim = animation([ animOut, slideDownStyle ]); 
-
-// Trigger with transition
+// Trigger with transition & animation
 export const slideDown = trigger('slideDown', [
-transition(':enter', slideDownInAnim),  
-transition(':leave', slideDownOutAnim), 
+  transition(':enter', animation([ slideStyle, animate('300ms') ], { params: slideInDownParams})),
+  transition(':leave', animation([ animate('300ms', slideStyle)], { params: slideOutDownParams})), 
 ]);
+
 
 // S L I D E   F R O M   L E F T //
 
-// Style
-export const slideLeftStyle = animation(
-  style({ 
-    opacity: '{{ opacity }}',
-    transform: 'translate({{ x }}, {{ y }})'
-  }),
-  {
-    params: {                          
-      opacity: 0,
-      x: '-50px',
-      y: '0'
-    }
-  }
-)
+// Default Params
+const slideLeftParams = { x: '-50px', y: 0 };
+const slideInLeftParams = { ...slideLeftParams, ...animInParams };
+const slideOutLeftParams = { ...slideLeftParams, ...animOutParams };
 
-// Animation
-export const slideLeftInAnim = animation([ slideLeftStyle, animIn ]); 
-export const slideLeftOutAnim = animation([ animOut, slideLeftStyle ]); 
-
-// Trigger with transition
+// Trigger with transition & animation
 export const slideLeft = trigger('slideLeft', [
-transition(':enter', slideLeftInAnim),  
-transition(':leave', slideLeftOutAnim), 
+  transition(':enter', animation([ slideStyle, animate('300ms') ], { params: slideInLeftParams})),
+  transition(':leave', animation([ animate('300ms', slideStyle)], { params: slideOutLeftParams})), 
 ]);
-
 
 
 // S L I D E   F R O M   R I G H T //
 
-// Style
-export const slideRightStyle = animation(
-  style({ 
-    opacity: '{{ opacity }}',
-    transform: 'translate({{ x }}, {{ y }})'
-  }),
-  {
-    params: {                          
-      opacity: 0,
-      x: '50px',
-      y: '0'
-    }
-  }
-)
+// Default Params
+const slideRightParams = { x: '50px', y: 0 };
+const slideInRightParams = { ...slideRightParams, ...animInParams };
+const slideOutRightParams = { ...slideRightParams, ...animOutParams };
 
-// Animation
-export const slideRightInAnim = animation([ slideRightStyle, animIn ]); 
-export const slideRightOutAnim = animation([ animOut, slideRightStyle ]); 
-
-// Trigger with transition
+// Trigger with transition & animation
 export const slideRight = trigger('slideRight', [
-transition(':enter', slideRightInAnim),  
-transition(':leave', slideRightOutAnim), 
+  transition(':enter', animation([ slideStyle, animate('300ms') ], { params: slideInRightParams})),
+  transition(':leave', animation([ animate('300ms', slideStyle)], { params: slideOutRightParams})), 
 ]);
 

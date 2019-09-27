@@ -8,21 +8,9 @@ export interface AnimeParams {
   easing: string;
 }
 
-export const anim = animation(
-  animate('{{ duration }} {{ delay }} {{ easing }}'), // Animation
-  {
-    params: {
-      duration: '2s',
-      delay: '0s',
-      easing: Easing.easeInOutcubic,
-    }
-  }
-);
-
-export const animPre = animate('{{ duration }} {{ delay }} {{ easing }}');
-
+/** Default params for entering and exiting */
 export const animParams = {
-  duration: '2s',
+  duration: '1s',
   delay: '0s',
   easing: Easing.easeInOutcubic,
 }
@@ -36,6 +24,19 @@ export const animOutParams = {
   ...animParams,
   easing: Easing.easeIncubic
 };
+
+
+export const anim = animation(
+  animate('{{ duration }} {{ delay }} {{ easing }}'), // Animation
+  {
+    params: {
+      duration: '2s',
+      delay: '0s',
+      easing: Easing.easeInOutcubic,
+    }
+  }
+);
+
 
 /** Animation something in the page */
 export const animIn = useAnimation(anim, { params: { easing: Easing.easeOutcubic }})

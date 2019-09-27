@@ -11,6 +11,13 @@ import { zoomIn, zoomUp, zoomDown, zoomRight, zoomLeft } from 'ng-animation'
 })
 export class ZoomComponent implements OnInit {
 
+  isVisible = true;
+
+  toggle() {
+    this.isVisible = !this.isVisible;
+  }
+  
+
   constructor() { }
 
   ngOnInit() {
