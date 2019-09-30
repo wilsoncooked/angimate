@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { rainbowFlash, flash, FadeDirective } from 'ng-animation';
+import { rainbowFlash, flash, FadeDirective, pulse } from 'ng-animation';
 import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-attention-seekers',
-  animations: [ rainbowFlash, flash ],
+  animations: [ rainbowFlash, flash, pulse ],
   templateUrl: './attention-seekers.component.html',
   styleUrls: ['./attention-seekers.component.scss']
 })

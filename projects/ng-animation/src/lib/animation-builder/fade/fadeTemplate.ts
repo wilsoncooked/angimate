@@ -3,8 +3,8 @@ import { anim } from '../../anime';
 import { AnimationFactoryParams } from '../types';
 
 // Fade Animation with default params
-
-export const fadeTemplate = ({child, debounce}?: Partial<AnimationFactoryParams>) => animation(
+// ?: Partial<AnimationFactoryParams>
+export const fadeTemplate = ({child, debounce}) => animation(
   query(child || '*', [
     style({ opacity: '{{ opacity }}', transform: 'translate({{ x }}, {{ y }})'}),
     stagger(debounce || 50, [ anim ])
@@ -26,6 +26,7 @@ export const animIn = (styles, defaultParams = {}) => {
   }
 
   if (styles.child) {
+    const myStagger = stagger(styles.debounce, [anim])
     myAnimation = query(styles.child, [myAnimation, myStagger])
   }
 

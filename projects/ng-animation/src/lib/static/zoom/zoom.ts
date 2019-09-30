@@ -1,5 +1,5 @@
 import { animation, trigger, transition, style, animate } from '@angular/animations';
-import { AnimeParams, animInParams, animOutParams } from './anime';
+import { AnimeParams, animInParams, animOutParams } from '../../anime';
 
 
 // Params
@@ -13,15 +13,15 @@ export interface ZoomParams extends AnimeParams {
 // Zoom Style
 export const zoomStyle = 
   style({ 
-    opacity: '{{ opacity }}',
     transform: 'translate({{ x }}, {{ y }}) scale({{ scale }})',
+    transformOrigin: 'center',
     });
 
 
 // Z O O M   I N //
 
 // Default Params
-const zoomParams = { opacity: 0, scale: 0.2, x: 0, y: 0 };
+const zoomParams = { scale: 0.2, x: 0, y: 0 };
 const zoomInParams = { ...zoomParams, ...animInParams };
 const zoomOutParams = { ...zoomParams, ...animOutParams };
 
@@ -34,7 +34,7 @@ export const zoomIn = trigger('zoomIn', [
 
 // Z O O M   U P //
 
-const zoomUpParams = { opacity: 0, scale: '0.2', x: '0', y: '50px' };
+const zoomUpParams = { scale: '0.2', x: '0', y: '50px' };
 const zoomInUpParams = { ...zoomUpParams, ...animInParams };
 const zoomOutUpParams = { ...zoomUpParams, ...animOutParams };
 
@@ -47,7 +47,7 @@ export const zoomUp = trigger('zoomUp', [
 
 // Z O O M   D O W N //
 
-const zoomDownParams = { opacity: 0, scale: '0.2', x: '0', y: '-50px' };
+const zoomDownParams = { scale: '0.2', x: '0', y: '-50px' };
 const zoomInDownParams = { ...zoomDownParams, ...animInParams };
 const zoomOutDownParams = { ...zoomDownParams, ...animOutParams };
 
@@ -71,7 +71,7 @@ export const zoomLeft = trigger('zoomLeft', [
   
 // Z O O M   R I G H T //
 
-const zoomRightParams = { opacity: 0, scale: '0.2', x: '-50px', y: '0' };
+const zoomRightParams = { scale: '0.2', x: '-50px', y: '0' };
 const zoomInRightParams = { ...zoomRightParams, ...animInParams };
 const zoomOutRightParams = { ...zoomRightParams, ...animOutParams };
   

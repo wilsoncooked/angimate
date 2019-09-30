@@ -9,8 +9,8 @@ import { AnimeParams, animInParams, animOutParams } from './anime';
 // pulse Style
 export const pulseStyle = 
     keyframes([
-        style({ transform: 'scale(0.5)', offset: 0.5  }),
-        style({ transform: 'scale(1)', offset: 0.9 }),
+        style({ transform: 'scale(0.5)', transformOrigin: 'center', offset: 0.5, }),
+        style({ transform: 'scale(1)', transformOrigin: 'center', offset: 1 }),
     ])
 
 // Trigger with transition & Animation
@@ -18,5 +18,4 @@ export const pulse = trigger('pulse', [
   transition(':enter', animation([ animate('1000ms', pulseStyle) ])),     
   transition(':leave', animation([ animate('1000ms', pulseStyle) ])),  
 ]);
-
 

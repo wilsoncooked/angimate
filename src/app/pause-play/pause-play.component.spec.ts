@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColorTransitionComponent } from './color-transition.component';
+import { PausePlayComponent } from './pause-play.component';
 
-describe('ColorTransitionComponent', () => {
-  let component: ColorTransitionComponent;
-  let fixture: ComponentFixture<ColorTransitionComponent>;
+describe('PausePlayComponent', () => {
+  let component: PausePlayComponent;
+  let fixture: ComponentFixture<PausePlayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColorTransitionComponent ]
+      declarations: [ PausePlayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColorTransitionComponent);
+    fixture = TestBed.createComponent(PausePlayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,5 @@
 import { animation, trigger, transition, style, animate, useAnimation, query, stagger } from '@angular/animations';
-import { AnimeParams, animInParams, animOutParams } from './anime';
+import { AnimeParams, animInParams, animOutParams } from '../../anime';
 
 // Params
 export interface FadeParams extends AnimeParams {

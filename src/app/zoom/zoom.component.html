@@ -3,7 +3,7 @@
   <button mat-button (click)="toggle()">Toggle Visible</button>
   <ng-container *ngIf="isVisible">
     <button @zoomIn mat-fab>Basic</button>
-    <button @zoomUp mat-fab color="primary">Primary</button>
+    <button @pulse mat-fab color="primary">Primary</button>
     <button @zoomDown mat-fab color="accent">Accent</button>
     <button @zoomLeft mat-fab color="warn">Warn</button>
     <button @zoomRight mat-fab disabled>Disabled</button>

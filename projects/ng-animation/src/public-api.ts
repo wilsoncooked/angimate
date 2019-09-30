@@ -3,10 +3,12 @@
  */
 
 export * from './lib/ng-animation.module';
-export * from './lib/fade'
+export * from './lib/static/fade/fade'
 export * from './lib/flash'
 export * from './lib/pulse'
 export * from './lib/routerAnimations'
 export * from './lib/static/slide/slide';
-export * from './lib/zoom';
+export * from './lib/static/zoom/zoom';
 export * from './lib/animation-builder/fade/fadeBuild.directive';
+export * from './lib/static/roll'
+export * from './lib/static/flip'

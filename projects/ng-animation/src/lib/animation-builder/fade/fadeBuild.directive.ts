@@ -1,7 +1,7 @@
 import { ElementRef, Directive, Input, OnInit } from '@angular/core';
 import { AnimationBuilder, AnimationPlayer, AnimationFactory } from '@angular/animations';
 import { fadeTemplate } from './fadeTemplate';
-import { FadeParams } from '../../fade';
+import { FadeParams } from '../../static/fade/fade';
 import { AnimationFactoryParams } from '../types';
 
 @Directive({
@@ -17,18 +17,19 @@ export class FadeDirective implements OnInit {
     this.createPlayer();
   }
 
-  @Input() set stagger(debounce: string) {
+  @Input() set stagger(debounce: any) {
     this.createFactory({ debounce });
     this.createPlayer();
   }
 
     // before was fadeParams but threw and error???
-  @Input('fade') set params(params: Partial<FadeParams> & Partial<AnimationFactoryParams> = {}) {
-    const { child, debounce } = params;
-    if (!this.factory || child || debounce) {
-      this.createFactory({ child, debounce });
-    }
-    this.createPlayer(params);
+  @Input('fade') set params(params: any) {
+    // Partial<FadeParams> & Partial<AnimationFactoryParams> = {}) {
+    // const { child, debounce } = params;
+    // if (!this.factory || child || debounce) {
+    //   this.createFactory({ child, debounce });
+    // }
+    // this.createPlayer(params);
   }
 
   constructor(private el: ElementRef, private builder: AnimationBuilder) {}
@@ -41,7 +42,7 @@ export class FadeDirective implements OnInit {
     //   this.player.destroy()
   }
 
-  private createFactory(params: Partial<AnimationFactoryParams> = {}) {
+  private createFactory(params: any = {}) {
     const animation = fadeTemplate(params);
     this.factory = this.builder.build(animation);
   }
