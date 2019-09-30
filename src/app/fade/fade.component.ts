@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { fade, fadeUp, fadeDown, fadeRight, fadeLeft, rollInLeft, rollInRight, flipInX } from 'ng-animation'
+import { fade, fadeUp, fadeDown, fadeRight, fadeLeft, rollInLeft, rollInRight, flipInX, flipInY } from 'ng-animation'
 
 
 @Component({
   selector: 'app-fade',
-  animations: [ fade, fadeUp, fadeDown, fadeRight, fadeLeft, rollInLeft, rollInRight, flipInX ],
+  animations: [ fade, fadeUp, fadeDown, fadeRight, fadeLeft, rollInLeft, rollInRight, flipInX, flipInY ],
   templateUrl: './fade.component.html',
   styleUrls: ['./fade.component.scss']
 })
