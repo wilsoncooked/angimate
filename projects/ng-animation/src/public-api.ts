@@ -12,3 +12,4 @@ export * from './lib/static/zoom/zoom';
 export * from './lib/animation-builder/fade/fadeBuild.directive';
 export * from './lib/static/roll'
 export * from './lib/static/flip'
+export * from './lib/static/lightspeed'

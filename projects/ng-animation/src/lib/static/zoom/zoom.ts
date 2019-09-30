@@ -53,7 +53,7 @@ const zoomOutDownParams = { ...zoomDownParams, ...animOutParams };
 
 // Trigger with transition & animation
 export const zoomDown = trigger('zoomDown', [
-  transition(':enter', animation([ zoomStyle, animate('300ms') ], { params: zoomInDownParams})),
+  transition(':enter', animation([ animate('300ms', zoomStyle) ], { params: zoomInDownParams})),
   transition(':leave', animation([ animate('300ms', zoomStyle)], { params: zoomOutDownParams})), 
 ]);
 
