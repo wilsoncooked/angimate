@@ -3,13 +3,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const MaterialComponents =  [ 
   MatSidenavModule,
   MatIconModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatSlideToggleModule
 ]
 
 @NgModule({

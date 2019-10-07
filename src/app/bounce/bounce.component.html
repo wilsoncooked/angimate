@@ -1,0 +1,22 @@
+<div class="bounce-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <h2 class="animate-text" *ngIf="bounce" @bounce>bounce</h2>
+      <!-- <h2 class="animate-text" *ngIf="bounceIn" @bounceIp>bounceIn</h2> -->
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of bounceAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
+</div>

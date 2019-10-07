@@ -1,5 +1,6 @@
 mat-sidenav-container {
     height: 100vh;
+      background-color: #fdf9f9;
   }
   
 mat-sidenav, mat-sidenav-content {
@@ -7,8 +8,8 @@ mat-sidenav, mat-sidenav-content {
   }
   
 mat-sidenav {
-    background-color: #e6e6e6;
-    width: 200px;
+  background-color: #fcf5f5;
+  width: 200px;
   }
   
 .side-nav-links {
@@ -19,4 +20,9 @@ mat-sidenav {
 a {
     text-decoration: none;
     color: black;
+    height: 0;
+}
+
+.active-list-item {
+  color: #ee0c0c
 }

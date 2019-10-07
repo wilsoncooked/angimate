@@ -1,51 +1,52 @@
-/* @keyframes name | duration | timing-function | delay | 
-iteration-count | direction | fill-mode | play-state*/
+// /* @keyframes name | duration | timing-function | delay | 
+// iteration-count | direction | fill-mode | play-state*/
 
-.play {
-    transform-origin: center;
-    transform: scale(0)
-}
+// .play {
+//     transform-origin: center;
+//     transform: scale(0)
+// }
 
-.play-appear {
-    animation: appear 300ms cubic-bezier(.14,.58,.54,.98) 300ms forwards;
-}
+// .play-appear {
+//     animation: appear 300ms cubic-bezier(.14,.58,.54,.98) 300ms forwards;
+// }
 
-.play-disappear {
-    animation: disappear 300ms cubic-bezier(.14,.58,.54,.98) forwards;
-}
+// .play-disappear {
+//     animation: disappear 300ms cubic-bezier(.14,.58,.54,.98) forwards;
+// }
 
-.pause {
-    transform-origin: center;
-    transform: scale(0)
-}
+// .pause {
+//     transform-origin: center;
+//     transform: scale(0)
+// }
 
 
-.pause-disappear {
-    animation: disappear 300ms cubic-bezier(.14,.58,.54,.98) forwards;
-}
+// .pause-disappear {
+//     animation: disappear 300ms cubic-bezier(.14,.58,.54,.98) forwards;
+// }
 
-.pause-appear {
-    animation: appear 300ms cubic-bezier(.14,.58,.54,.98) 300ms forwards;
-}
+// .pause-appear {
+//     animation: appear 300ms cubic-bezier(.14,.58,.54,.98) 300ms forwards;
+// }
 
-@keyframes appear {
-    from { 
-        transform: scale(0) rotate(-180deg); 
-        // opacity: 0;
-    }
-    to   { 
-        transform: scale(1);
-        // opacity: 1; 
-    }
-  }
+// @keyframes appear {
+//     from { 
+//         transform: scale(0) rotate(-180deg); 
+//         // opacity: 0;
+//     }
+//     to   { 
+//         transform: scale(1);
+//         // opacity: 1; 
+//     }
+//   }
 
-@keyframes disappear {
-    from { 
-        transform: scale(1);
-        // opacity: 1;  
-    }
-    to   { 
-        transform: scale(0) rotate(180deg);
-        // opacity: 0; 
-    }
-}
+// @keyframes disappear {
+//     from { 
+//         transform: scale(1);
+//         // opacity: 1;  
+//     }
+//     to   { 
+//         transform: scale(0) rotate(180deg);
+//         // opacity: 0; 
+//     }
+// }
+

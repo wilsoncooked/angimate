@@ -1,53 +1,37 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { rainbowFlash, flash, FadeDirective, pulse } from 'ng-animation';
-import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { rollInLeft, rollInRight, lightSpeedRight, lightSpeedLeft, flash, pulse } from 'ng-animation';
 
 @Component({
   selector: 'app-attention-seekers',
-  animations: [ rainbowFlash, flash, pulse ],
+  animations: [ rollInLeft, rollInRight, lightSpeedRight, lightSpeedLeft, flash, pulse ],
   templateUrl: './attention-seekers.component.html',
   styleUrls: ['./attention-seekers.component.scss']
 })
-export class AttentionSeekersComponent implements OnInit, AfterViewInit {
-  //cast element into the directive
-  // hepls access the play - property of fade directive
-  @ViewChild(FadeDirective, { static: true }) fade: FadeDirective; 
+export class AttentionSeekersComponent implements OnInit {
 
-  fadeParams = {
-    child: 'h1',
-    debounce: '30ms',
-    y: '200px', 
-    opacity: 1  
+  checked = true;
+  isVisible = true;
+  selectedAnim: string; 
+  public rollInLeft = true; 
+  public rollInRight = false; 
+  public lightSpeedRight = false; 
+  public lightSpeedLeft = false;
+
+  attentionAnims = ['rollInLeft', 'rollInRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulse']
+
+  toggle() { 
+    this.isVisible = !this.isVisible;
   }
+  
+  constructor() { }
 
-  constructor(private router: Router) { }
-
-  // Hook triggered when component is built (Inputs && Viewchild are not yet ready)
   ngOnInit() {
   }
 
-  // Hook triggerd when view is built (Inputs && Viewchild are ready)
-  ngAfterViewInit() {
-    this.fade.player.play();
+  animate(animName:string) {
+    // this.selectedAnim = animName;
+    this[animName] = !this[animName];
+    console.log(this[animName])
   }
 
-  goTo() {
-    const subject = new Subject();
-    subject.asObservable().subscribe(() => {
-      subject.complete()
-      this.router.navigate(['/fade']);
-    })
-    this.fade.player.onDone(() => subject.next())
-    this.fade.player.play();
-  }
-
-
-  play() {
-    this.fade.player.play();
-  }
-
-  pause() {
-    this.fade.player.pause()
-  }
 }

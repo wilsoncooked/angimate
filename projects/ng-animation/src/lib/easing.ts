@@ -3,9 +3,9 @@ export const enum Easing {
   easeOutSine = 'cubic-bezier(0.39, 0.575, 0.565, 1)',
   easeInOutSine = 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
 
-  easeIncubic = 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-  easeOutcubic = 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-  easeInOutcubic = 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+  easeInCubic = 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+  easeOutCubic = 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+  easeInOutCubic = 'cubic-bezier(0.645, 0.045, 0.355, 1)',
 
   easeInQuint = 'cubic-bezier(0.755, 0.05, 0.855, 0.06)',
   easeOutQuint = 'cubic-bezier(0.23, 1, 0.32, 1)',

@@ -1,41 +1,38 @@
 import { animation, animate, keyframes, style, trigger, transition, useAnimation } from '@angular/animations';
-import { AnimeParams, animInParams, animOutParams } from '../anime';
+import { AnimateParams, enterAnime, leaveAnime } from '../anime';
 
 
-export interface RollParams extends AnimeParams {
+export interface RollParams extends AnimateParams {
   opacity: number;
-  translateX: string | number;
-  translateY: string | number;
+  transX: string | number;
+  transY: string | number;
   rotateX: string | number;
   rotateY: string | number;
   rotateZ: string | number;
   rotateA: string | number;
+  offset: number;
 }
-// 0, 1, -120deg
 
 export const rollStyle = 
   style({
     opacity: '{{opacity}}',
-    transform: 'translate({{translateX}}, {{translateY}}) rotate3d({{rotateX}}, {{rotateY}}, {{rotateZ}}, {{rotateA}})',
+    transform: 'translate({{ transX }}, {{ transY }}) rotate3d({{ rotateX }}, {{ rotateY }}, {{ rotateZ }}, {{ rotateA }})',
+    offset: '{{ offset }}',
   })
 
-// R O L L   I N //
-const rollInLeftParams = { opacity: 0, translateX: '-100%', translateY: 0, rotateX: 0, rotateY: 0, rotateZ: 1, rotateA: '-120deg' };
-const rollInLeftEnterParams = { ...rollInLeftParams, ...animInParams };
-const rollOutLeftLeaveParams = { ...rollInLeftParams, ...animOutParams };
+  // R O L L   I N //
+const rollLeftParams = { opacity: 0, transX: '-100px', transY: 0, rotateX: 0, rotateY: 0, rotateZ: 1, rotateA: '-120deg', offset: 1 };
 
 export const rollInLeft = trigger('rollInLeft', [
-  transition(':enter', animation([ rollStyle, animate('1s') ], { params: rollInLeftEnterParams})),
-  transition(':leave', animation([ animate('1s', rollStyle)], { params: rollOutLeftLeaveParams})), 
+transition(':enter', animation([rollStyle, animate(enterAnime)], { params: rollLeftParams })),     
+transition(':leave', animation([animate(leaveAnime, rollStyle)], { params: rollLeftParams })),     
 ]);
 
 // R O L L   O U T //
-
-const rollRightParams = { opacity: 0, translateX: '100%', translateY: 0, rotateX: 0, rotateY: 0, rotateZ: 1, rotateA: '120deg' };
-const rollRightEnterParams = { ...rollRightParams, ...animInParams };
-const rollRightLeaveParams = { ...rollRightParams, ...animOutParams };
+const rollRightParams = { opacity: 0, transX: '100px', transY: 0, rotateX: 0, rotateY: 0, rotateZ: 1, rotateA: '120deg', offset: 1 };
 
 export const rollInRight = trigger('rollInRight', [
-  transition(':enter', animation([ rollStyle, animate('1s') ], { params: rollRightEnterParams})),
-  transition(':leave', animation([ animate('1s', rollStyle)], { params: rollRightLeaveParams})), 
+transition(':enter', animation([rollStyle, animate(enterAnime)], { params: rollRightParams })),     
+transition(':leave', animation([animate(leaveAnime, rollStyle)], { params: rollRightParams })),     
 ]);
+

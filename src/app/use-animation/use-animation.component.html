@@ -1,0 +1,7 @@
+<button mat-raised-button color="primary" (click)="toggle()">
+  toggle
+</button>
+<ng-container *ngIf="isVisible">
+  <p @fadeOutLeft>use-animation works!</p>
+  <p @fadeUp>FadeUp</p>
+</ng-container>

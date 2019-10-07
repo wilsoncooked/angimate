@@ -1,16 +1,32 @@
-<h3 @rainbowFlash>TEXT RAINBOW</h3>
-
-<h3 @flash>FLASH FLASH</h3>
-<div>
-  <h3 @pulse>PULSE</h3>
-</div>
-
-<section [fade]="fadeParams" #fade>
-  <h1>One</h1>
-  <h1>Two</h1>
-  <h1>Three</h1>
-</section>
-
-<button mat-button (click)="play()">Play</button>
-<button mat-button (click)="pause()">Pause</button>
-<a (click)="goTo()">Navigate</a>
+<!-- <div class="attention-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <h2 class="animate-text roll" *ngIf="rollInLeft" @rollInLeft>
+        rollInLeft
+      </h2>
+      <h2 class="animate-text" *ngIf="rollInRight" @rollInRight>rollInRight</h2>
+      <h2 class="animate-text" *ngIf="lightSpeedRight" @lightSpeedRight>
+        lightSpeedRight
+      </h2>
+      <h2 class="animate-text" *ngIf="lightSpeedLeft" @lightSpeedLeft>
+        lightSpeedLeft
+      </h2>
+      <h2 class="animate-text" *ngIf="flash" @flash>flash</h2>
+      <h2 class="animate-text" *ngIf="pulse" @pulse>pulse</h2>
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of attentionAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
+</div> -->

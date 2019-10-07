@@ -1,10 +1,10 @@
 import { animation, trigger, transition, style, animate, keyframes, useAnimation, query, stagger } from '@angular/animations';
-import { AnimeParams, animInParams, animOutParams } from './anime';
+import { AnimateParams, enterAnime, leaveAnime } from '../anime';
 
 // Params
-// export interface FlashParams extends AnimeParams {
-//   opacity: number;
-// }
+export interface FlashParams extends AnimateParams {
+  opacity: number;
+}
 
 // Flash Style
 export const flashStyle = 
@@ -15,11 +15,6 @@ export const flashStyle =
     ])
 
 // R A I N B O W   F L A S H  //
-
-// Default params
-// const flashParams = { opacity: 0 };
-// const flashInParams = { ...flashParams, ...animInParams };
-// const flashOutParams = { ...flashParams, ...animOutParams };
 
 // Trigger with transition & Animation
 export const flash = trigger('flash', [
@@ -44,11 +39,6 @@ export const rainbowFlashStyle =
     ])
 
 // R A I N B O W   F L A S H  //
-
-// Default params
-// const flashParams = { opacity: 0 };
-// const flashInParams = { ...flashParams, ...animInParams };
-// const flashOutParams = { ...flashParams, ...animOutParams };
 
 // Trigger with transition & Animation
 export const rainbowFlash = trigger('rainbowFlash', [

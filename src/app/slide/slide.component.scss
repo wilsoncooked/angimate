@@ -1,0 +1,29 @@
+
+p, h1 {
+    margin: 20px;
+  }
+  
+  .slide-wrapper {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .animate-text {
+    font-size: 3em;
+    color: #ee0c0c;
+  }
+  
+  .button-container, button {
+    margin: 15px;
+  }
+  
+  .animation-container {
+    height: 30vh;
+  }
+  
+  
+  

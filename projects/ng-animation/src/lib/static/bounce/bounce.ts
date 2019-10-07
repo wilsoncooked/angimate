@@ -1,71 +1,56 @@
-// import { animation, trigger, transition, style, animate, useAnimation, query, stagger } from '@angular/animations';
-// import { AnimeParams, animInParams, animOutParams } from './anime';
-
-// // Params
-// export interface FadeParams extends AnimeParams {
-//   opacity: number;
-//   x: string | number;
-//   y: string | number;
-// }
-
-// // Fade Style
-// export const fadeStyle = 
-//   style({
-//     opacity: '{{ opacity }}',
-//     transform: 'translate({{ x }}, {{ y }})'
-//   })
+import { animation, trigger, transition, style, animate, useAnimation, query, stagger, keyframes } from '@angular/animations';
+import { Easing } from '../../easing';
 
 
-// // F A D E  //
+export const bounceKeyframes = keyframes([
+    style({
+        'animation-timing-function': Easing.easeOutQuint,
+        transform: 'translate3d(0, 0, 0)',
+        offset: 0,
+    }),
+    style({
+        'animation-timing-function': Easing.easeOutQuint,
+        transform: 'translate3d(0, 0, 0)',
+        offset: 0.2,
+    }),
+    style({
+        'animation-timing-function': Easing.easeInQuint,
+        transform: 'translate3d(0, -30px, 0)',
+        offset: 0.3,
+    }),
+    style({
+        'animation-timing-function': Easing.easeInQuint,
+        transform: 'translate3d(0, -30px, 0)',
+        offset: 0.43,
+    }),
+    style({
+        'animation-timing-function': Easing.easeOutQuint,
+        transform: 'translate3d(0, 0, 0)',
+        offset: 0.53,
+    }),
+    style({
+        'animation-timing-function': Easing.easeInQuint,
+        transform: 'translate3d(0, -15px, 0)',
+        offset: 0.7,
+    }),
+    style({
+        'animation-timing-function': Easing.easeOutQuint,
+        transform: 'translate3d(0, 0, 0)',
+        offset: 0.8,
+    }),
+    style({
+        transform: 'translate3d(0, -4px, 0)',
+        offset: 0.9,
+    }),
+  ]);
 
-// // Default params
-// const fadeParams = { opacity: 0, x: 0, y: 0 };
-// const fadeInParams = { ...fadeParams, ...animInParams };
-// const fadeOutParams = { ...fadeParams, ...animOutParams };
+export const allbounceKeyframes = (style({ 'transform-origin': 'center bottom' }))
 
-// // Trigger with transition & Animation
-// export const fade = trigger('fade', [
-//   transition(':enter', animation([ fadeStyle, animate('300ms') ], { params: fadeInParams })),     
-//   transition(':leave', animation([ animate('300ms', fadeStyle) ], { params: fadeOutParams })),  
-// ]);
+// B O U N C E //
 
-  
-
-
-
-//     export const bulseStyle = 
-//     keyframes([
-//         style({ transform: 'scale(0.5)', offset: 0.2  }),
-//         style({ transform: 'scale(0.5)', offset: 0.53  }),
-//         style({ transform: 'scale(0.5)', offset: 0.8  }),
-//         style({ transform: 'scale(1)', offset: 0.9 }),
-//     ])
-//     from,
-//     20%,
-//     53%,
-//     80%,
-//     to {
-//       animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-//       transform: translate3d(0, 0, 0);
-//     }
-  
-//     40%,
-//     43% {
-//       animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-//       transform: translate3d(0, -30px, 0);
-//     }
-  
-//     70% {
-//       animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-//       transform: translate3d(0, -15px, 0);
-//     }
-  
-//     90% {
-//       transform: translate3d(0, -4px, 0);
-//     }
-//   }
-  
-//   .bounce {
-//     animation-name: bounce;
-//     transform-origin: center bottom;
-//   }
+export const bounce = trigger('bounce', [
+  transition(':enter', animation([allbounceKeyframes, animate('1s', bounceKeyframes)]))
+    // {params: flipXParams})),
+//   transition(':leave', animation([allFramesBounceStyle, animate('2s', bounceKeyframes)
+//   ], {params: flipXParams}))
+]);

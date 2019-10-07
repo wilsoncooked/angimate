@@ -16,10 +16,11 @@ export class SideNavigationComponent implements OnInit {
 
   ngOnInit() {
   }
-  opened = false;
 
+  opened: boolean;
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
+
 }

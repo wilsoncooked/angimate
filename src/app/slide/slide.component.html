@@ -1,52 +1,24 @@
-<div class="example-button-row">
-  <button mat-button (click)="toggle()">Toggle Visible</button>
-  <ng-container *ngIf="isVisible">
+<div class="slide-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <h2 class="animate-text" *ngIf="slideUp" @slideUp>slideUp</h2>
+      <h2 class="animate-text" *ngIf="slideDown" @slideDown>slideDown</h2>
+      <h2 class="animate-text" *ngIf="slideLeft" @slideLeft>slideLeft</h2>
+      <h2 class="animate-text" *ngIf="slideRight" @slideRight>slideRight</h2>
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
     <button
-      @slideUp
-      mat-icon-button
-      aria-label="Example icon-button with a heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      @slideDown
-      mat-icon-button
+      mat-raised-button
       color="primary"
-      aria-label="Example icon-button with a heart icon"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of slideAnims"
     >
-      <mat-icon>favorite</mat-icon>
+      {{ anim }}
     </button>
-    <button
-      @slideLeft
-      mat-icon-button
-      color="accent"
-      aria-label="Example icon-button with a heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      @slideRight
-      mat-icon-button
-      color="warn"
-      aria-label="Example icon-button with a heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      @flipInX
-      mat-icon-button
-      color="warn"
-      aria-label="Example icon-button with a heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      @flipInY
-      mat-icon-button
-      color="warn"
-      aria-label="Example icon-button with a heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-  </ng-container>
+  </div>
 </div>

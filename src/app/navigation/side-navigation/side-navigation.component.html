@@ -1,35 +1,58 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" #sidenav>
-    <mat-list>
-      <!-- <mat-list-item>
-        <a routerLink="">Home</a>
-      </mat-list-item> -->
-      <mat-list-item>
-        <a routerLink="fade">Fade</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="zoom">Zoom</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="slide">Slide</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="attention-seekers">Attention Seekers</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="fade-player">Fade Player</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="svg-icons">SVG icons</a>
-      </mat-list-item>
-    </mat-list>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="attention-seekers"
+        routerLinkActive="active-list-item"
+        >Attention Seekers</a
+      >
+      <a mat-list-item routerLink="fade" routerLinkActive="active-list-item"
+        >Fade</a
+      >
+      <a mat-list-item routerLink="zoom" routerLinkActive="active-list-item"
+        >Zoom</a
+      >
+      <a mat-list-item routerLink="slide" routerLinkActive="active-list-item"
+        >Slide</a
+      >
+      <a mat-list-item routerLink="bounce" routerLinkActive="active-list-item"
+        >Bounce</a
+      >
+      <a mat-list-item routerLink="flip" routerLinkActive="active-list-item"
+        >Flip</a
+      >
+      <a mat-list-item routerLink="rotate" routerLinkActive="active-list-item"
+        >Rotate</a
+      >
+      <a
+        mat-list-item
+        mat-list-item
+        routerLink="dynamic"
+        routerLinkActive="active-list-item"
+        >Dynamic</a
+      >
+      <a
+        mat-list-item
+        routerLink="svg-icons"
+        routerLinkActive="active-list-item"
+        >SVG</a
+      >
+      <a
+        mat-list-item
+        routerLink="use-animation"
+        routerLinkActive="active-list-item"
+        >Use Animation</a
+      >
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div [@slideInAnimation]="prepareRoute(outlet)">
+    <!-- <div [@slideInAnimation]="prepRouteState(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
-    </div>
+    </div> -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

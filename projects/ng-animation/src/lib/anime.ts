@@ -2,29 +2,25 @@ import { animation, animate, useAnimation } from '@angular/animations';
 import { Easing } from './easing';
 
 
-export interface AnimeParams {
-  duration: string | number;
-  delay: string | number;
-  easing: string;
+
+export interface AnimateParams {
+  animationParams: string;
 }
 
-/** Default params for entering and exiting */
-export const animParams = {
-  duration: '1s',
-  delay: '0s',
-  easing: Easing.easeInOutcubic,
+export interface OtherAnimateParams {
+  durations: string;
+  delay: string;
+  movement: string;
 }
-/** Default params for entering animations */
-export const animInParams = {
-  ...animParams,
-  easing: Easing.easeOutcubic
-};
-/** Default params for leaving animations */
-export const animOutParams = {
-  ...animParams,
-  easing: Easing.easeIncubic
-};
 
+export const enterAnime = `300ms ${Easing.easeOutCubic}`;
+export const leaveAnime = `300ms ${Easing.easeInCubic}`;
+
+export const enterAnimeMd = `600ms ${Easing.easeOutCubic}`;
+export const leaveAnimeMd = `600ms ${Easing.easeInCubic}`;
+
+export const enterAnimeSl = `900ms ${Easing.easeOutCubic}`;
+export const leaveAnimeSl = `900ms ${Easing.easeInCubic}`;
 
 export const anim = animation(
   animate('{{ duration }} {{ delay }} {{ easing }}'), // Animation
@@ -32,13 +28,13 @@ export const anim = animation(
     params: {
       duration: '2s',
       delay: '0s',
-      easing: Easing.easeInOutcubic,
+      easing: Easing.easeInOutCubic,
     }
   }
 );
 
 
 /** Animation something in the page */
-export const animIn = useAnimation(anim, { params: { easing: Easing.easeOutcubic }})
-export const animOut = useAnimation(anim, { params: { easing: Easing.easeIncubic }})
+export const animIn = useAnimation(anim, { params: { easing: Easing.easeOutCubic }})
+export const animOut = useAnimation(anim, { params: { easing: Easing.easeInCubic }})
 

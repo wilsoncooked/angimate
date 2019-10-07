@@ -14,7 +14,11 @@ import { FadeComponent } from './fade/fade.component';
 import { AttentionSeekersComponent } from './attention-seekers/attention-seekers.component';
 import { NgAnimationModule } from 'ng-animation';
 import { PausePlayComponent } from './pause-play/pause-play.component';
-
+import { RotateComponent } from './rotate/rotate.component';
+import { FlipComponent } from './flip/flip.component';
+import { BounceComponent } from './bounce/bounce.component';
+import { DynamicComponent } from './dynamic/dynamic.component';
+import { UseAnimationComponent } from './use-animation/use-animation.component';
 
 
 @NgModule({
@@ -26,16 +30,29 @@ import { PausePlayComponent } from './pause-play/pause-play.component';
     FadePlayerComponent,
     FadeComponent,
     AttentionSeekersComponent,
-    PausePlayComponent
+    PausePlayComponent,
+    RotateComponent,
+    FlipComponent,
+    BounceComponent,
+    DynamicComponent,
+    UseAnimationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgAnimationModule // Import your NgAnimationModule here to make the directive available to all Components declared in this Module
+    NgAnimationModule, // Import your NgAnimationModule here to make the directive available to all Components declared in this Module
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+
+
+
+
+
+

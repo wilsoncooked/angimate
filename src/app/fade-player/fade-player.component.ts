@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import {AnimationBuilder, style, trigger, transition, useAnimation, animate, query, stagger, animation } from '@angular/animations';
 
-const fade = ({child, delay}) => animation(
+const fadeFade = ({child, delay}) => animation(
   query(child, [
     //but this seems to be the first state?
     style({ opacity: '{{ opacity }}', transform: 'translateY({{ y }})', color: '{{ color }}' }),
@@ -9,7 +9,7 @@ const fade = ({child, delay}) => animation(
   ])
 );
 
-const zoom = ({child}) => animation(
+const zoomZoom = ({child}) => animation(
   query(child, animate('{{ duration }}',
     style({ color: '{{ color }}', opacity: '{{ opacity }}', transform: 'scale({{ scale }})' }),
   )
@@ -48,7 +48,7 @@ export class FadePlayerComponent implements OnInit {
     //   y: 50,
     //   duration: 400,
     // };
-    const animation1 = fade({ child: 'h1', delay: '300ms' });
+    const animation1 = fadeFade({ child: 'h1', delay: '300ms' });
     const player1 = this.builder.build(animation1).create(this.myAnimation.nativeElement, 
       { params: 
         { 
@@ -56,7 +56,7 @@ export class FadePlayerComponent implements OnInit {
           color: 'orange', 
           opacity: 0.5 
         }});
-    const animation2 = zoom({ child: 'h2'});
+    const animation2 = zoomZoom({ child: 'h2'});
     // factory = this.builder.build()
     // creates the animation = .create
     const player2 = this.builder.build(animation2).create(this.myOtherAnimation.nativeElement, 

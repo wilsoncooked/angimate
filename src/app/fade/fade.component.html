@@ -1,22 +1,35 @@
-<div classname="fade-wrapper">
-  <button mat-button (click)="toggle()">Toggle Visible</button>
-  <ng-container *ngIf="isVisible">
-    <!-- <p @fade>FADE</p> -->
-    <p @fadeUp>FADE UP</p>
-    <p @fadeDown>FADE DOWN</p>
-    <p @fadeLeft>FADE LEFT</p>
-    <p @fadeRight>FADE RIGHT</p>
-    <p @rollInLeft>Roll In Left</p>
-    <p @rollInRight>Roll In Right</p>
-    <h1 @flipInX>Flip In</h1>
-    <h1 @flipInY>Flip In</h1>
-    <h3 @lightSpeedRight>Light Speed Right</h3>
-    <h3 @lightSpeedLeft>Light Speed Left</h3>
-    <!-- <p @flipOut>Flip Out</p> -->
-  </ng-container>
-</div>
-
-<div>
-  <!-- This is how you use the directive -->
-  <p>Hello World</p>
+<div class="fade-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible || text">
+      <h2 class="animate-text" *ngIf="fadeL" @fadeL>fade</h2>
+      <h2 class="animate-text" *ngIf="fadeUp" @fadeUp>fadeUp</h2>
+      <h2 class="animate-text" *ngIf="fadeDown" @fadeDown>fadeDown</h2>
+      <h2 class="animate-text" *ngIf="fadeLeft" @fadeLeft>fadeLeft</h2>
+      <h2 class="animate-text" *ngIf="fadeRight" @fadeRight>fadeRight</h2>
+      <!-- <h2 class="animate-text" *ngIf="fadeUpLarge" @fadeUpLarge>fadeUpLarge</h2>
+      <h2 class="animate-text" *ngIf="fadeDownLarge" @fadeDownLarge>
+        fadeDownLarge
+      </h2>
+      <h2 class="animate-text" *ngIf="fadeLeftLarge" @fadeLeftLarge>
+        fadeLeftLarge
+      </h2>
+      <h2 class="animate-text" *ngIf="fadeRightLarge" @fadeRightLarge>
+        fadeRightLarge
+      </h2> -->
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of fadeAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
 </div>
