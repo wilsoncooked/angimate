@@ -36,7 +36,15 @@ export class RotateComponent implements OnInit {
   text = true;
   selectedAnim: string; 
   public rotateLeft = true;
+  public rotateRight = false;
   public rotateLarge = false;
+  public rotateLeftRight = false;
+  public rotateRightLeft = false;
+  public rotateLargeSlow = false;
+  public rotateLeftZoom = false;
+  public rotateRightZoom = false;
+  public rotateLeftRightZoom = false;
+  public rotateRightLeftZoom = false;
 
   rotateAnims = [
     'rotateLeft', 
