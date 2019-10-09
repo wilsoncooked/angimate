@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { rollInLeft, rollInRight, lightSpeedRight, lightSpeedLeft, flash, pulse } from 'ng-animation';
+import { lightSpeedRight, lightSpeedLeft, pulse, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY } from 'ng-animation';
 
 @Component({
   selector: 'app-attention-seekers',
-  animations: [ rollInLeft, rollInRight, lightSpeedRight, lightSpeedLeft, flash, pulse ],
+  animations: [ lightSpeedRight, lightSpeedLeft, pulse, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY ],
   templateUrl: './attention-seekers.component.html',
   styleUrls: ['./attention-seekers.component.scss']
 })
@@ -12,12 +12,18 @@ export class AttentionSeekersComponent implements OnInit {
   checked = true;
   isVisible = true;
   selectedAnim: string; 
-  public rollInLeft = true; 
-  public rollInRight = false; 
+  public rollLeft = true; 
+  public rollRight = false; 
   public lightSpeedRight = false; 
   public lightSpeedLeft = false;
+  public vibrate = false;
+  public flash = false;
+  public pulse = false;
+  public flicker = false;
+  public jelloX = false;
+  public yelloY = false;
 
-  attentionAnims = ['rollInLeft', 'rollInRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulse']
+  attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulse', 'vibrate', 'flicker', 'jelloX', 'jelloY']
 
   toggle() { 
     this.isVisible = !this.isVisible;

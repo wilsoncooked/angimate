@@ -1,4 +1,4 @@
-<!-- <div class="zoom-wrapper">
+<div class="zoom-wrapper">
   <div class="animation-container">
     <ng-container *ngIf="isVisible || text">
       <h2 class="animate-text" *ngIf="zoom" @zoom>zoom</h2>
@@ -7,6 +7,16 @@
       <h2 class="animate-text" *ngIf="zoomLeft" @zoomLeft>zoomLeft</h2>
       <h2 class="animate-text" *ngIf="zoomRight" @zoomRight>zoomRight</h2>
       <h2 class="animate-text" *ngIf="zoomFade" @zoomFade>zoomFade</h2>
+      <h2 class="animate-text" *ngIf="zoomFadeUp" @zoomFadeUp>zoomFadeUp</h2>
+      <h2 class="animate-text" *ngIf="zoomFadeDown" @zoomFadeDown>
+        zoomFadeDown
+      </h2>
+      <h2 class="animate-text" *ngIf="zoomFadeLeft" @zoomFadeLeft>
+        zoomFadeLeft
+      </h2>
+      <h2 class="animate-text" *ngIf="zoomFadeRight" @zoomFadeRight>
+        zoomFadeRight
+      </h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">
@@ -23,4 +33,4 @@
       {{ anim }}
     </button>
   </div>
-</div> -->
+</div>

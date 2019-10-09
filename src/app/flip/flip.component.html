@@ -2,7 +2,7 @@
   <div class="animation-container">
     <ng-container *ngIf="isVisible">
       <h2 class="animate-text" *ngIf="flipX" @flipX>flipX</h2>
-      <!-- <h2 class="animate-text" *ngIf="flipY" @flipY>flipY</h2> -->
+      <h2 class="animate-text" *ngIf="flipY" @flipY>flipY</h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">

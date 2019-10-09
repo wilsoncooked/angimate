@@ -7,8 +7,8 @@ export const slideOut = animOut;
 
 export function slideParams (slideName, opacity, transX, transY) {
   return trigger(slideName, [
-  transition(':enter', useAnimation(slideIn, { params: { transX, transY } })),
-  transition(':leave', useAnimation(slideOut, { params: { transX, transY } }))
+  transition(':enter', useAnimation(slideIn, { params: { opacity, transX, transY } })),
+  transition(':leave', useAnimation(slideOut, { params: { opacity, transX, transY } }))
 ]);
 }
 

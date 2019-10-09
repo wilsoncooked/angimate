@@ -1,10 +1,10 @@
-<!-- <div class="attention-wrapper">
+<div class="attention-wrapper">
   <div class="animation-container">
     <ng-container *ngIf="isVisible">
-      <h2 class="animate-text roll" *ngIf="rollInLeft" @rollInLeft>
-        rollInLeft
+      <h2 class="animate-text roll" *ngIf="rollLeft" @rollLeft>
+        rollLeft
       </h2>
-      <h2 class="animate-text" *ngIf="rollInRight" @rollInRight>rollInRight</h2>
+      <h2 class="animate-text" *ngIf="rollRight" @rollRight>rollRight</h2>
       <h2 class="animate-text" *ngIf="lightSpeedRight" @lightSpeedRight>
         lightSpeedRight
       </h2>
@@ -13,6 +13,10 @@
       </h2>
       <h2 class="animate-text" *ngIf="flash" @flash>flash</h2>
       <h2 class="animate-text" *ngIf="pulse" @pulse>pulse</h2>
+      <h2 class="animate-text" *ngIf="vibrate" @vibrate>vibrate</h2>
+      <h2 class="animate-text" *ngIf="flicker" @flicker>flicker</h2>
+      <h2 class="animate-text" *ngIf="jelloX" @jelloX>jelloX</h2>
+      <h2 class="animate-text" *ngIf="jelloY" @jelloY>jelloY</h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">
@@ -29,4 +33,4 @@
       {{ anim }}
     </button>
   </div>
-</div> -->
+</div>

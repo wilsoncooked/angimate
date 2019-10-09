@@ -19,6 +19,8 @@ import { FlipComponent } from './flip/flip.component';
 import { BounceComponent } from './bounce/bounce.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { UseAnimationComponent } from './use-animation/use-animation.component';
+import { ShakeComponent } from './shake/shake.component';
+import { WobbleComponent } from './wobble/wobble.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { UseAnimationComponent } from './use-animation/use-animation.component';
     BounceComponent,
     DynamicComponent,
     UseAnimationComponent,
+    ShakeComponent,
+    WobbleComponent,
   ],
   imports: [
     BrowserModule,

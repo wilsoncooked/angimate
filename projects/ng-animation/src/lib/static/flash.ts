@@ -12,9 +12,7 @@ export const flashStyle =
         style({ opacity: 0, offset: 0.25 }),
         style({ opacity: 1, offset: 0.5  }),
         style({ opacity: 0, offset: 0.75 }),
-    ])
-
-// R A I N B O W   F L A S H  //
+    ]);
 
 // Trigger with transition & Animation
 export const flash = trigger('flash', [
@@ -23,6 +21,7 @@ export const flash = trigger('flash', [
 ]);
 
 
+// R A I N B O W   F L A S H  //
 
 // Rainbow flash Style
 export const rainbowFlashStyle = 

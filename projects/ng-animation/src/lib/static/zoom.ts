@@ -1,69 +1,25 @@
-import { animation, trigger, transition, style, animate } from '@angular/animations';
-import { AnimateParams, enterAnime, leaveAnime } from '../anime';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { animIn, animOut } from './structure'
 
-// Params
-export interface ZoomAnimParams extends AnimateParams {
-  opacity: number;
-  transX: string | number;
-  transY: string | number;
-  scaleX: string | number;
-  scaleY: string | number;
+export const zoomIn = animIn;
+export const zoomOut = animOut;
+
+
+export function zoomParams (zoomName, opacity, transX, transY, scaleX, scaleY, origin) {
+  return trigger(zoomName, [
+  transition(':enter', useAnimation(animIn, { params: { transX, opacity, transY, scaleX, scaleY, origin } })),
+  transition(':leave', useAnimation(animOut, { params: { transX, opacity, transY, scaleX, scaleY, origin  } }))
+]);
 }
 
-// zoom Style
-export const zoomStyle = (style({
-  opacity: '{{ opacity }}',
-  transform: 'translate({{ transX }}, {{ transY }}) scale({{ scaleX }}, {{ scaleY }})'
-}))
+export const zoom = zoomParams('zoom', 1, 0, 0, 0, 0, 'center');
+export const zoomUp = zoomParams('zoomUp', 1, 0, '100px', 0, 0, 'center');
+export const zoomDown = zoomParams('zoomDown', 1, 0, '-100px', 0, 0, 'center');
+export const zoomLeft = zoomParams('zoomLeft', 1, '-100px', 0, 0, 0, 'center');
+export const zoomRight = zoomParams('zoomRight', 1, '100px', 0, 0, 0, 'center');
 
-
-// Z O O M  //
-export const zoomParams = { opacity: 1, transX: 0, transY: 0, scaleX: 0, scaleY: 0 };
-
-export const zoom = trigger('zoom', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomParams })),     
-]);
-
-export const zoomFadeParams = { opacity: 0, transX: 0, transY: 0, scaleX: 0, scaleY: 0};
-
-export const zoomFade = trigger('zoomFade', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomFadeParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomFadeParams })),     
-]);
-
-
-// // Z O O M  U P //
-export const zoomUpParams = { opacity: 1, transX: 0, transY: '100px', scaleX: 0, scaleY: 0};
-
-export const zoomUp = trigger('zoomUp', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomUpParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomUpParams })),     
-]);
-
-
-// // Z O O M   D O W N //
-export const zoomDownParams = { opacity: 1, transX: 0, transY: '-100px', scaleX: 0, scaleY: 0};
-
-export const zoomDown = trigger('zoomDown', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomDownParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomDownParams })),     
-]);
-
-
-// // Z O O M   F R O M   L E F T //
-export const zoomLeftParams = { opacity: 1, transX: '-100px', transY: 0, scaleX: 0, scaleY: 0};
-
-export const zoomLeft = trigger('zoomLeft', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomLeftParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomLeftParams })),     
-]);
-
-
-// // Z O O M   F R O M   R I G H T //
-export const zoomRightParams = { opacity: 1, transX: '100px', transY: 0, scaleX: 0, scaleY: 0};
-
-export const zoomRight = trigger('zoomRight', [
-transition(':enter', animation([zoomStyle, animate(enterAnime)], { params: zoomRightParams })),     
-transition(':leave', animation([animate(leaveAnime, zoomStyle)], { params: zoomRightParams })),     
-]);
+export const zoomFade = zoomParams('zoomFade', 0, 0, 0, 0, 0, 'center');
+export const zoomFadeUp = zoomParams('zoomFadeUp', 0, 0, '100px', 0, 0, 'center');
+export const zoomFadeDown = zoomParams('zoomFadeDown', 0, 0, '-100px', 0, 0, 'center');
+export const zoomFadeLeft = zoomParams('zoomFadeLeft', 0, '-100px', 0, 0, 0, 'center');
+export const zoomFadeRight = zoomParams('zoomFadeRight', 0, '100px', 0, 0, 0, 'center');

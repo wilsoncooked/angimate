@@ -1,0 +1,32 @@
+<div class="wobble-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <h2 class="animate-text" *ngIf="wobbleBottom" @wobbleBottom>
+        wobbleBottom
+      </h2>
+      <h2 class="animate-text" *ngIf="wobbleTop" @wobbleTop>
+        wobbleTop
+      </h2>
+      <h2 class="animate-text" *ngIf="wobbleLeft" @wobbleLeft>
+        wobbleLeft
+      </h2>
+      <h2 class="animate-text" *ngIf="wobbleRight" @wobbleRight>
+        wobbleRight
+      </h2>
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of wobbleAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
+</div>

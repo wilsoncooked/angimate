@@ -1,0 +1,40 @@
+<div class="shake-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <h2 class="animate-text" *ngIf="shakeX" @shakeX>shakeX</h2>
+      <h2 class="animate-text" *ngIf="shakeY" @shakeY>shakeY</h2>
+      <h2 class="animate-text" *ngIf="shakeXLonger" @shakeXLonger>
+        shakeXLonger
+      </h2>
+      <h2 class="animate-text" *ngIf="shakeYLonger" @shakeYLonger>
+        shakeYLonger
+      </h2>
+      <h2 class="animate-text" *ngIf="shakePivot" @shakePivot>
+        shakePivot
+      </h2>
+      <h2 class="animate-text" *ngIf="shakeTop" @shakeTop>
+        shakeTop
+      </h2>
+      <h2 class="animate-text" *ngIf="shakeBottom" @shakeBottom>
+        shakeBottom
+      </h2>
+      <h2 class="animate-text" *ngIf="shakePivotLonger" @shakePivotLonger>
+        shakePivotLonger
+      </h2>
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of shakeAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
+</div>

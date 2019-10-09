@@ -22,8 +22,10 @@ export interface AnimationParams extends OtherAnimateParams {
                     skew({{ skewX }}, {{ skewY }})
                      perspective({{ perspective }})
                     `,
-                'transform-origin': '{{ origin }}'
-            });
+                'transform-origin': '{{ origin }}',
+                offset: '{{ offset }}',
+                'backface-visibility': 'visible',
+        });
 
     
     export function animDefaultParams ( movement ) {
@@ -46,6 +48,7 @@ export interface AnimationParams extends OtherAnimateParams {
             skewY: 0,
             perspective: 0,
             origin: 'center',
+            offset: 0,
           }}
       }
 

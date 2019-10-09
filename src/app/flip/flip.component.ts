@@ -14,7 +14,7 @@ export class FlipComponent implements OnInit {
   text = true;
   selectedAnim: string; 
   public flipX = true;
-  public flipUpY = false;
+  public flipY = false;
 
 
   flipAnims = ['flipX', 'flipY']

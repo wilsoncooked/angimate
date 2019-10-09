@@ -11,6 +11,8 @@ import { BounceComponent } from './bounce/bounce.component'
 import { FlipComponent } from './flip/flip.component'
 import { DynamicComponent } from './dynamic/dynamic.component'
 import { UseAnimationComponent } from './use-animation/use-animation.component'
+import { ShakeComponent } from './shake/shake.component';
+import { WobbleComponent } from './wobble/wobble.component'
 
 const routes: Routes = [
   { path: 'fade', component: FadeComponent, data: {animation: 'fade'} },
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'flip', component: FlipComponent },
   { path: 'dynamic', component: DynamicComponent },
   { path: 'use-animation', component: UseAnimationComponent },
+  { path: 'shake', component: ShakeComponent },
+  { path: 'wobble', component: WobbleComponent}
 ];
 
 @NgModule({
@@ -33,5 +37,15 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [
-  ZoomComponent, FadePlayerComponent, FadeComponent, AttentionSeekersComponent, PausePlayComponent, RotateComponent, UseAnimationComponent, BounceComponent, FlipComponent
+  ZoomComponent, 
+  FadePlayerComponent, 
+  FadeComponent, 
+  AttentionSeekersComponent, 
+  PausePlayComponent, 
+  RotateComponent, 
+  UseAnimationComponent, 
+  BounceComponent, 
+  FlipComponent,
+  ShakeComponent,
+  WobbleComponent
 ]
