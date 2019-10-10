@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { zoom, zoomUp, zoomDown, zoomRight, zoomLeft, zoomFade, zoomFadeUp, zoomFadeDown, zoomFadeLeft, zoomFadeRight } from 'ng-animation'
+import { zoomFwd, zoomUp, zoomDown, zoomRight, zoomLeft, zoomFade, zoomFadeUp, zoomFadeDown, zoomFadeLeft, zoomFadeRight, zoomBack, zoomFwdBack, zoomBackFwd } from 'ng-animation'
 
 
 @Component({
   selector: 'app-zoom',
-  animations: [ zoom, zoomUp, zoomDown, zoomRight, zoomLeft, zoomFade, zoomFadeUp, zoomFadeDown, zoomFadeLeft, zoomFadeRight  ],
+  animations: [ zoomFwd, zoomUp, zoomDown, zoomRight, zoomLeft, zoomFade, zoomFadeUp, zoomFadeDown, zoomFadeLeft, zoomFadeRight, zoomBack, zoomFwdBack, zoomBackFwd  ],
   templateUrl: './zoom.component.html',
   styleUrls: ['./zoom.component.scss']
 })
@@ -14,7 +14,7 @@ export class ZoomComponent implements OnInit {
   isVisible = true;
   text = true;
   selectedAnim: string; 
-  public zoom = true;
+  public zoomFwd = true;
   public zoomUp = false;
   public zoomDown = false;
   public zoomLeft = false;
@@ -24,9 +24,12 @@ export class ZoomComponent implements OnInit {
   public zoomFadeDown = false;
   public zoomFadeLeft =  false;
   public zoomFadeRight =  false;
+  public zoomBack = false;
+  public zoomFwdBack = false;
+  public zoomBackFwd = false;
 
 
-  zoomAnims = ['zoom', 'zoomUp', 'zoomDown', 'zoomRight', 'zoomLeft', 'zoomFade', 'zoomFadeUp', 'zoomFadeDown', 'zoomFadeLeft', 'zoomFadeRight']
+  zoomAnims = ['zoomFwd', 'zoomUp', 'zoomDown', 'zoomRight', 'zoomLeft', 'zoomFade', 'zoomFadeUp', 'zoomFadeDown', 'zoomFadeLeft', 'zoomFadeRight', 'zoomBack', 'zoomFwdBack' ,'zoomBackFwd']
 
   toggle() { 
     this.isVisible = !this.isVisible;
@@ -41,7 +44,5 @@ export class ZoomComponent implements OnInit {
   animate(animName:string) {
     // this.selectedAnim = animName;
     this[animName] = !this[animName];
-    console.log(this[animName])
-    console.log(zoom)
   }
 }

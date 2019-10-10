@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { wobbleTop, wobbleBottom, wobbleLeft, wobbleRight } from 'ng-animation';
+import { wobbleTop, wobbleBottom, wobbleLeft, wobbleRight, swingLeft, swingRight } from 'ng-animation';
 
 @Component({
   selector: 'app-wobble',
-  animations: [ wobbleTop, wobbleBottom, wobbleLeft, wobbleRight ],
+  animations: [ wobbleTop, wobbleBottom, wobbleLeft, wobbleRight, swingLeft, swingRight ],
   templateUrl: './wobble.component.html',
   styleUrls: ['./wobble.component.scss']
 })
@@ -14,8 +14,12 @@ export class WobbleComponent implements OnInit {
   selectedAnim: string; 
   public wobbleBottom = false;
   public wobbleTop = true;
+  public wobbleLeft = false;
+  public wobbleRight = false;
+  public swingLeft = false;
 
-  wobbleAnims = [ 'wobbleTop', 'wobbleBottom', 'wobbleLeft', 'wobbleRight' ]
+
+  wobbleAnims = [ 'wobbleTop', 'wobbleBottom', 'wobbleLeft', 'wobbleRight', 'swingLeft', 'swingRight' ]
 
   toggle() { 
     this.isVisible = !this.isVisible;

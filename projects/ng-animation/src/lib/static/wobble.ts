@@ -35,7 +35,7 @@ export const wobbleBottom = trigger('wobbleBottom', [
 export const wobbleTopKeyframes = keyframes([
     style({
       transform: 'translate(0, 0)',
-      'transform-origin': 'bottom',
+      'transform-origin': 'top',
     }),
     style({
       transform: 'translateX(-30px) rotate(6deg)',
@@ -54,7 +54,7 @@ export const wobbleTopKeyframes = keyframes([
     }),
     style({
       transform: 'translate(0, 0)',
-      'transform-origin': 'bottom',
+      'transform-origin': 'top',
     }),
   ]);
   

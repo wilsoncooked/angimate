@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { bounce, bounceIn }from 'ng-animation';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounce, bounceIn, zoom }from 'ng-animation';
 
 @Component({
   selector: 'app-bounce',
-  animations: [ bounce, bounceIn],
+  animations: [ bounce, bounceIn, trigger('zoom', [transition('* <=> *', useAnimation(zoom))]) ],
   templateUrl: './bounce.component.html',
   styleUrls: ['./bounce.component.scss']
 })
@@ -13,9 +14,10 @@ export class BounceComponent implements OnInit {
   isVisible = true;
   selectedAnim: string; 
   public bounce = true;
+  public zoom = false;
   // public bounceIn = false;
 
-  bounceAnims = ['bounce']
+  bounceAnims = ['bounce', 'zoom']
 
   toggle() { 
     this.isVisible = !this.isVisible;

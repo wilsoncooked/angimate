@@ -16,11 +16,11 @@ export interface AnimationParams extends OtherAnimateParams {
         style({
                 opacity: '{{ opacity }}',
                 transform: `
+                    perspective({{ perspective }})
                     translate3d({{ transX }}, {{ transY }}, {{ transZ }}) 
                     scale3d({{ scaleX }}, {{ scaleY }}, {{ scaleZ }}) 
                     rotate3d({{ rotateX }}, {{ rotateY }}, {{ rotateZ }}, {{ rotateAngle }}deg)
                     skew({{ skewX }}, {{ skewY }})
-                     perspective({{ perspective }})
                     `,
                 'transform-origin': '{{ origin }}',
                 offset: '{{ offset }}',
@@ -65,3 +65,8 @@ export const animOut =
     animDefaultParams( Easing.easeInCubic)
   );
 
+export const animWildCard = 
+  animation([ animStyle,
+  animate( anim )], 
+  animDefaultParams( Easing.easeInOutCubic)
+);

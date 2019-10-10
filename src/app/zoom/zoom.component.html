@@ -1,7 +1,7 @@
 <div class="zoom-wrapper">
   <div class="animation-container">
     <ng-container *ngIf="isVisible || text">
-      <h2 class="animate-text" *ngIf="zoom" @zoom>zoom</h2>
+      <h2 class="animate-text" *ngIf="zoomFwd" @zoomFwd>zoomFwd</h2>
       <h2 class="animate-text" *ngIf="zoomUp" @zoomUp>zoomUp</h2>
       <h2 class="animate-text" *ngIf="zoomDown" @zoomDown>zoomDown</h2>
       <h2 class="animate-text" *ngIf="zoomLeft" @zoomLeft>zoomLeft</h2>
@@ -16,6 +16,15 @@
       </h2>
       <h2 class="animate-text" *ngIf="zoomFadeRight" @zoomFadeRight>
         zoomFadeRight
+      </h2>
+      <h2 class="animate-text" *ngIf="zoomBack" @zoomBack>
+        zoomBack
+      </h2>
+      <h2 class="animate-text" *ngIf="zoomFwdBack" @zoomFwdBack>
+        zoomFwdBack
+      </h2>
+      <h2 class="animate-text" *ngIf="zoomBackFwd" @zoomBackFwd>
+        zoomBackFwd
       </h2>
     </ng-container>
   </div>

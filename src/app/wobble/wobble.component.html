@@ -13,6 +13,12 @@
       <h2 class="animate-text" *ngIf="wobbleRight" @wobbleRight>
         wobbleRight
       </h2>
+      <h2 class="animate-text" *ngIf="swingLeft" @swingLeft>
+        swingLeft
+      </h2>
+      <h2 class="animate-text" *ngIf="swingRight" @swingRight>
+        swingRight
+      </h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">

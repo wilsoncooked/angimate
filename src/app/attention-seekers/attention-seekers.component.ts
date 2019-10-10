@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { lightSpeedRight, lightSpeedLeft, pulse, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY } from 'ng-animation';
+import { lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY } from 'ng-animation';
 
 @Component({
   selector: 'app-attention-seekers',
-  animations: [ lightSpeedRight, lightSpeedLeft, pulse, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY ],
+  animations: [ lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY ],
   templateUrl: './attention-seekers.component.html',
   styleUrls: ['./attention-seekers.component.scss']
 })
@@ -18,12 +18,13 @@ export class AttentionSeekersComponent implements OnInit {
   public lightSpeedLeft = false;
   public vibrate = false;
   public flash = false;
-  public pulse = false;
+  public pulseFwd = false;
+  public pulseBack = false;
   public flicker = false;
   public jelloX = false;
   public yelloY = false;
 
-  attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulse', 'vibrate', 'flicker', 'jelloX', 'jelloY']
+  attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulseFwd', 'pulseBack', 'vibrate', 'flicker', 'jelloX', 'jelloY']
 
   toggle() { 
     this.isVisible = !this.isVisible;
@@ -37,7 +38,6 @@ export class AttentionSeekersComponent implements OnInit {
   animate(animName:string) {
     // this.selectedAnim = animName;
     this[animName] = !this[animName];
-    console.log(this[animName])
   }
 
 }

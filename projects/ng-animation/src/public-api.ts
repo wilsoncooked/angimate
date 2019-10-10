@@ -22,3 +22,4 @@ export * from './lib/static/flicker';
 export * from './lib/static/shake';
 export * from './lib/static/jello';
 export * from './lib/static/wobble';
+export * from './lib/static/swing';
