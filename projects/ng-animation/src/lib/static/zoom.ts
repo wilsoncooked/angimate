@@ -101,4 +101,3 @@ animate( anim, animStyle )],
 zoomDefaultParams( Easing.easeOutCubic, 0, 0, 0 )
 );
 
-

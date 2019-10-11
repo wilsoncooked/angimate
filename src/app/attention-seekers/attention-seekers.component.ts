@@ -22,7 +22,7 @@ export class AttentionSeekersComponent implements OnInit {
   public pulseBack = false;
   public flicker = false;
   public jelloX = false;
-  public yelloY = false;
+  public jelloY = false;
 
   attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulseFwd', 'pulseBack', 'vibrate', 'flicker', 'jelloX', 'jelloY']
 

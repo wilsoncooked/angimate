@@ -10,7 +10,7 @@ export function rollParams ( rollName, transX, transY, rotateAngle ) {
 }
 
 export const rollLeft = rollParams( 'rollLeft', '-100px', 0, -120 );
-export const rollRight = rollParams( 'rollLeft', '100px', 0, 120 );
+export const rollRight = rollParams( 'rollRight', '100px', 0, 120 );
 
 // Dynamic useAnimation structure //
 

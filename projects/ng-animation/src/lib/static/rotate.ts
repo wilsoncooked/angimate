@@ -35,44 +35,44 @@ export const rotateRightLeftZoom = rotateExtendedParams('rotateRightLeftZoom', '
 
 // ZOOM structure for useAnimation //
    
-export function zoomDefaultParams ( movement, opacity, scaleX, scaleY ) {
-  return { params: { 
-      timing: '300ms', 
-      delay: '0s', 
-      movement,
-      opacity,
-      transX: 0, 
-      transY: 0, 
-      transZ: 0, 
-      scaleX,
-      scaleY,
-      scaleZ: 1, 
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 1,
-      rotateAngle: 0,
-      skewX: 0,
-      skewY: 0,
-      perspective: 0,
-      origin: 'center',
-      offset: 0,
-    }}
-}
+// export function zoomDefaultParams ( movement, opacity, scaleX, scaleY ) {
+//   return { params: { 
+//       timing: '300ms', 
+//       delay: '0s', 
+//       movement,
+//       opacity,
+//       transX: 0, 
+//       transY: 0, 
+//       transZ: 0, 
+//       scaleX,
+//       scaleY,
+//       scaleZ: 1, 
+//       rotateX: 0,
+//       rotateY: 0,
+//       rotateZ: 1,
+//       rotateAngle: 0,
+//       skewX: 0,
+//       skewY: 0,
+//       perspective: 0,
+//       origin: 'center',
+//       offset: 0,
+//     }}
+// }
 
-export const zoom = 
-animation([ animStyle,
-animate( anim )], 
-zoomDefaultParams( Easing.easeInOutCubic, 0, 0, 0 )
-);
+// export const zoom = 
+// animation([ animStyle,
+// animate( anim )], 
+// zoomDefaultParams( Easing.easeInOutCubic, 0, 0, 0 )
+// );
 
-export const zoomEnter = 
-animation([ animStyle,
-animate( anim )], 
-zoomDefaultParams( Easing.easeInCubic, 0, 0, 0 )
-);
+// export const zoomEnter = 
+// animation([ animStyle,
+// animate( anim )], 
+// zoomDefaultParams( Easing.easeInCubic, 0, 0, 0 )
+// );
 
-export const zoomLeave = 
-animation([
-animate( anim, animStyle )], 
-zoomDefaultParams( Easing.easeOutCubic, 0, 0, 0 )
-);
+// export const zoomLeave = 
+// animation([
+// animate( anim, animStyle )], 
+// zoomDefaultParams( Easing.easeOutCubic, 0, 0, 0 )
+// );

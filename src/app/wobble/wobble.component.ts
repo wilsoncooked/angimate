@@ -17,7 +17,7 @@ export class WobbleComponent implements OnInit {
   public wobbleLeft = false;
   public wobbleRight = false;
   public swingLeft = false;
-
+  public swingRight = false;
 
   wobbleAnims = [ 'wobbleTop', 'wobbleBottom', 'wobbleLeft', 'wobbleRight', 'swingLeft', 'swingRight' ]
 

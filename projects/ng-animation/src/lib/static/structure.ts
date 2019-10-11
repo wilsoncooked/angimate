@@ -1,5 +1,5 @@
 
-import { animation, style, animate, } from '@angular/animations';
+import { animation, style, animate, trigger, transition, useAnimation } from '@angular/animations';
 import { OtherAnimateParams, enterAnime, leaveAnime } from '../anime';
 import { Easing } from '../easing';
 
@@ -28,7 +28,7 @@ export interface AnimationParams extends OtherAnimateParams {
         });
 
     
-    export function animDefaultParams ( movement ) {
+    export function animActiveParams ( movement ) {
         return { params: { 
             timing: '300ms', 
             delay: '0s', 
@@ -56,17 +56,19 @@ export interface AnimationParams extends OtherAnimateParams {
 export const animIn = 
     animation([ animStyle,
     animate( anim )], 
-    animDefaultParams( Easing.easeOutCubic)
+    animActiveParams( Easing.easeOutCubic)
   );
 
 export const animOut = 
     animation([
     animate( anim, animStyle )], 
-    animDefaultParams( Easing.easeInCubic)
+    animActiveParams( Easing.easeInCubic)
   );
 
 export const animWildCard = 
   animation([ animStyle,
   animate( anim )], 
-  animDefaultParams( Easing.easeInOutCubic)
+  animActiveParams( Easing.easeInOutCubic)
 );
+
+

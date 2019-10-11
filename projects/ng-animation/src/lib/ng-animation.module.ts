@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 // import { FadeDirective } from './animation-builder/fade/fadeBuild.directive'
+import { HoverDirective } from './static/hover/hover.directive'
 
 // Here it means that FadeAnimationDirective can be used on all components that are also declared by this module.
 // In this case, no components are declared.
@@ -7,6 +8,7 @@ import { NgModule } from '@angular/core';
 
 const directives = [
   // FadeDirective, 
+  HoverDirective
 ]
 
 @NgModule({

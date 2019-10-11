@@ -15,6 +15,11 @@ export class ShakeComponent implements OnInit {
   public shakeX = true;
   public shakeXLonger = false;
   public shakeY = false;
+  public shakeYLonger = false;
+  public shakePivot = false;
+  public shakeTop = false;
+  public shakeBottom = false;
+  public shakePivotLonger = false;
 
 
   shakeAnims = ['shakeX', 'shakeY', 'shakeXLonger', 'shakeYLonger', 'shakePivot', 'shakeTop', 'shakeBottom', 'shakePivotLonger']
