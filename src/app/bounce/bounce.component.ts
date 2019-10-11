@@ -1,10 +1,10 @@
 import { Component, OnInit, ElementRef, HostBinding } from '@angular/core';
-import { trigger, transition, useAnimation, state, style, animate } from '@angular/animations';
-import { bounce, bounceIn, zoom, hover, hoverGrow }from 'ng-animation';
+import { trigger, transition, useAnimation, state, style, animate, } from '@angular/animations';
+import { bounce, bounceIn, zoom, hover, fadeQuery }from 'ng-animation';
 
 @Component({
   selector: 'app-bounce',
-  animations: [ bounce, bounceIn, hoverGrow ],
+  animations: [ bounce, bounceIn, hover(), fadeQuery('h3') ],
   templateUrl: './bounce.component.html',
   styleUrls: ['./bounce.component.scss'],
 })
@@ -19,8 +19,9 @@ export class BounceComponent implements OnInit {
   public bounce = true;
   public lala = false;
   public isActive = false;
+  public fade = false;
 
-  bounceAnims = ['bounce', 'zoom', 'lala']
+  bounceAnims = ['bounce', 'zoom', 'lala', 'fade']
 
   toggle() { 
     this.isVisible = !this.isVisible;

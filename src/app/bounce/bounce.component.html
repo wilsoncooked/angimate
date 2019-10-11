@@ -3,6 +3,9 @@
     <ng-container *ngIf="isVisible">
       <h2 class="animate-text" *ngIf="bounce" @bounce>bounce</h2>
       <!-- <h2 class="animate-text" *ngIf="bounceIn" @bounceIp>bounceIn</h2> -->
+      <div @fadeTry>
+        <h3>HIHIHI</h3>
+      </div>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">
@@ -10,7 +13,7 @@
   </mat-slide-toggle>
   <div
     class="hover"
-    [@hoverGrow]="isActive ? 'active' : 'idle'"
+    [@hoverTest]="isActive ? 'active' : 'idle'"
     (mouseenter)="isActive = true"
     (mouseleave)="isActive = false"
   >

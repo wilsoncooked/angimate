@@ -1,4 +1,4 @@
-import { trigger, transition, useAnimation } from '@angular/animations';
+import { trigger, transition, useAnimation, query } from '@angular/animations';
 import { animIn, animOut } from './structure'
 
 export const fadeIn = animIn;
@@ -25,7 +25,11 @@ export const fadeDownLarge = fadeParams('fadeDown', 0, '-1000px');
 export const fadeLeftLarge = fadeParams('fadeLeft', '-1000px', 0);
 export const fadeRightLarge = fadeParams('fadeRight', '1000px', 0);
 
-
+export function fadeQuery(child: string) {
+  return trigger('fadeTry', [
+    transition(':enter', query(child, useAnimation(animIn))
+  )])
+}
 
 
 
