@@ -21,6 +21,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 import { UseAnimationComponent } from './use-animation/use-animation.component';
 import { ShakeComponent } from './shake/shake.component';
 import { WobbleComponent } from './wobble/wobble.component';
+import { HoverComponent } from './hover/hover.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { WobbleComponent } from './wobble/wobble.component';
     UseAnimationComponent,
     ShakeComponent,
     WobbleComponent,
+    HoverComponent,
   ],
   imports: [
     BrowserModule,

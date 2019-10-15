@@ -1,9 +1,9 @@
-import { trigger, transition, useAnimation, query } from '@angular/animations';
+import { trigger, transition, useAnimation, query, state, style, animate, keyframes } from '@angular/animations';
 import { animIn, animOut } from './structure'
+import { hScale } from './hover/hover-2d';
 
 export const fadeIn = animIn;
 export const fadeOut = animOut;
-
 
 export function fadeParams (fadeName, transX, transY) {
   return trigger(fadeName, [

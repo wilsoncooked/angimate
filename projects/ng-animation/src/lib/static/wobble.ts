@@ -1,5 +1,34 @@
-import { style, animate, keyframes, transition, trigger, animation } from '@angular/animations';
-import { Easing } from '../easing'
+import { style, animate, keyframes, transition, trigger, animation, state } from '@angular/animations';
+import { Easing } from '../easing';
+
+export const wobbleKeyframes = keyframes([
+  style({
+    transform: 'translate(0, 0)',
+  }),
+  style({
+    transform: 'translateX(-30px)',
+  }),
+  style({
+    transform: 'translateX(15px)',
+  }),
+  style({
+    transform: 'translateX(-15px)',
+  }),
+  style({
+    transform: 'translateX(9px)',
+  }),
+  style({
+    transform: 'translateX(-3px)',
+  }),
+  style({
+    transform: 'translate(0, 0)',
+  }),
+]);
+
+export const wobble = trigger('wobble', [
+  transition('* <=> *', animate(`800ms`, wobbleKeyframes)), 
+]);
+
 
 export const wobbleBottomKeyframes = keyframes([
   style({
@@ -121,3 +150,9 @@ export const wobbleTopKeyframes = keyframes([
   export const wobbleRight = trigger('wobbleRight', [
     transition('* <=> *', animate(`800ms`, wobbleRightKeyframes)), 
   ]);
+  export const noKeyFrames = keyframes([
+    style({
+      transform: 'translate(20px, 0px)'
+    }),
+  ]);
+  

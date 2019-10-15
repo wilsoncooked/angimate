@@ -12,7 +12,8 @@ import { FlipComponent } from './flip/flip.component'
 import { DynamicComponent } from './dynamic/dynamic.component'
 import { UseAnimationComponent } from './use-animation/use-animation.component'
 import { ShakeComponent } from './shake/shake.component';
-import { WobbleComponent } from './wobble/wobble.component'
+import { WobbleComponent } from './wobble/wobble.component';
+import { HoverComponent } from './hover/hover.component';
 
 const routes: Routes = [
   { path: 'fade', component: FadeComponent, data: {animation: 'fade'} },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'dynamic', component: DynamicComponent },
   { path: 'use-animation', component: UseAnimationComponent },
   { path: 'shake', component: ShakeComponent },
-  { path: 'wobble', component: WobbleComponent}
+  { path: 'wobble', component: WobbleComponent},
+  { path: 'hover', component: HoverComponent }
 ];
 
 @NgModule({
@@ -47,5 +49,6 @@ export const routingComponents = [
   BounceComponent, 
   FlipComponent,
   ShakeComponent,
-  WobbleComponent
+  WobbleComponent,
+  HoverComponent
 ]

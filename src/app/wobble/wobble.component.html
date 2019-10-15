@@ -1,6 +1,9 @@
 <div class="wobble-wrapper">
   <div class="animation-container">
     <ng-container *ngIf="isVisible">
+      <h2 class="animate-text" *ngIf="wobble" @wobble>
+        wobble
+      </h2>
       <h2 class="animate-text" *ngIf="wobbleBottom" @wobbleBottom>
         wobbleBottom
       </h2>

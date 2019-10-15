@@ -23,4 +23,6 @@ export * from './lib/static/shake';
 export * from './lib/static/jello';
 export * from './lib/static/wobble';
 export * from './lib/static/swing';
-export * from './lib/static/hover/hove-anim';
+export * from './lib/static/hover/hover-2d';
+export * from './lib/static/hover/hover-border';
+export * from './lib/static/hover/hover-keyframes';
