@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef, HostBinding } from '@angular/core';
-import { bounce, bounceIn,  }from 'ng-animation';
+import { bounce, bounceDown, bounceLeft, bounceRight, bounceIn, bounceInOut }from 'ng-animation';
 
 @Component({
   selector: 'app-bounce',
-  animations: [ bounce, bounceIn ],
+  animations: [ bounce,  bounceDown, bounceLeft, bounceRight, bounceIn, bounceInOut ],
   templateUrl: './bounce.component.html',
   styleUrls: ['./bounce.component.scss'],
 })
@@ -16,8 +16,13 @@ export class BounceComponent implements OnInit {
   isVisible = true;
   selectedAnim: string; 
   public bounce = true;
+  public bounceIn = false;
+  public bounceInOut = false;
+  public bounceDown = false;
+  public bounceLeft = false;
+  public bounceRight = false;
 
-  bounceAnims = ['bounce']
+  bounceAnims = ['bounce', 'bounceDown', 'bounceLeft', 'bounceRight', 'bounceIn', 'bounceInOut' ]
 
   toggle() { 
     this.isVisible = !this.isVisible;

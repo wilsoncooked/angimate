@@ -1,17 +1,20 @@
 import { animate, animation, keyframes, style, useAnimation, transition, trigger } from '@angular/animations';
-import { AnimateParams, enterAnime, leaveAnime } from '../anime';
 import { animIn, animOut } from './structure'
+import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
-export function lightSpeedParams ( animName, opacity, transX, transY, skewX, skewY) {
-  return trigger(animName, [
-  transition(':enter', useAnimation(animIn, { params: {  opacity, transX, transY, skewX, skewY } })),
-  transition(':leave', useAnimation(animOut, { params: { opacity, transX, transY, skewX, skewY } }))
-]);
+
+// WHAT
+export function lightSpeedIn(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animIn, { params });
+}
+
+export function lightSpeedOut(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animOut, { params });
 }
 
 // FADE //
 
-export const lightSpeedRight = lightSpeedParams('lightSpeedRight', 0, '100px', 0, '-30deg', 0);
-export const lightSpeedLeft = lightSpeedParams('lightSpeedLeft', 0, '-100px', 0, '30deg', 0);
+export const lightSpeedRight = enterLeave('lightSpeedRight', lightSpeedIn({transX: '100px', skewX: '-30deg' }), lightSpeedOut({transX: '100px', skewX: '-30deg' }));
+export const lightSpeedLeft = enterLeave('lightSpeedLeft', lightSpeedIn({transX: '-100px', skewX: '30deg' }), lightSpeedOut({transX: '-100px', skewX: '30deg' }));
 
      

@@ -1,5 +1,5 @@
 
-import { animation, style, animate, trigger, transition, useAnimation } from '@angular/animations';
+import { animation, style, animate, trigger, transition, useAnimation, stagger } from '@angular/animations';
 import { OtherAnimateParams, enterAnime, leaveAnime } from '../anime';
 import { Easing } from '../easing';
 
@@ -27,6 +27,7 @@ export interface AnimationParams extends OtherAnimateParams {
                 'backface-visibility': 'visible',
         });
 
+
     
     export function animActiveParams ( movement ) {
         return { params: { 
@@ -52,6 +53,28 @@ export interface AnimationParams extends OtherAnimateParams {
           }}
       }
 
+export interface AnimOptionParams {
+  timing: string;
+  delay: string;
+  movement: string;
+  opacity: number;
+  transX: string;
+  transY: string;
+  transZ: string; 
+  scaleX: number;
+  scaleY: number;
+  scaleZ: number;
+  rotateX: number;
+  rotateY: number;
+  rotateZ: number;
+  rotateAngle: string;
+  skewX: string;
+  skewY: string;
+  perspective: string;
+  origin: string;
+  offset: number;
+}
+
 
 export const animIn = 
     animation([ animStyle,
@@ -70,5 +93,50 @@ export const animWildCard =
   animate( anim )], 
   animActiveParams( Easing.easeInOutCubic)
 );
+
+export function enter(name: string, what) {
+  return trigger(name, [
+    transition(':enter', what)])
+}
+
+export function leave(name: string, what) {
+  return trigger(name, [
+    transition(':leave', what)])
+}
+
+export function enterLeave(name: string, whatEnter, whatLeave ) {
+  return trigger(name, [
+    transition(':enter', whatEnter),
+    transition(':leave', whatLeave)
+  ])
+}
+
+export function wildCard(name: string, what) {
+  return trigger(name, [
+    transition('* <=> *', what)])
+}
+
+export function animEnter(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animIn, { params });
+}
+
+export function animLeave(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animOut, { params });
+}
+
+export interface QueryOptionAnim {
+  query: string;
+  stagger?: string;
+}
+
+export function queryAnimIn(staggerDelay: string) {
+  return animation([ animStyle,
+    stagger(staggerDelay, 
+    animate( anim ))], 
+    animActiveParams( Easing.easeOutCubic)
+    );
+}
+
+
 
 

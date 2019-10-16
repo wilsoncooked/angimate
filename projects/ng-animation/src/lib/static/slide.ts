@@ -1,27 +1,18 @@
-import { trigger, transition, useAnimation } from '@angular/animations';
+import { trigger, transition, useAnimation, style, animate} from '@angular/animations';
 import { animIn, animOut } from './structure'
+import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
-export const slideIn = animIn;
-export const slideOut = animOut;
-
-
-export function slideParams (slideName, opacity, transX, transY) {
-  return trigger(slideName, [
-  transition(':enter', useAnimation(slideIn, { params: { opacity, transX, transY } })),
-  transition(':leave', useAnimation(slideOut, { params: { opacity, transX, transY } }))
-]);
+// WHAT
+export function slideIn(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animIn, { params });
 }
 
-// slide //
-
-export const slideUp = slideParams('slideUp', 1, 0, '50px');
-export const slideDown = slideParams('slideDown', 1, 0, '-50px');
-export const slideLeft = slideParams('slideLeft', 1, '-50px', 0);
-export const slideRight = slideParams('slideRight', 1, '50px', 0);
-
-export const slideUpLarge = slideParams('slideUp', 1, 0, '1000px');
-export const slideDownLarge = slideParams('slideDown', 1, 0, '-1000px');
-export const slideLeftLarge = slideParams('slideLeft', 1, '-1000px', 0);
-export const slideRightLarge = slideParams('slideRight', 1, '1000px', 0);
+export function slideOut(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animOut, { params });
+}
 
 
+export const slideUp = enterLeave('slideUp', slideIn({ opacity: 1, transY: '50px' }), slideOut({ opacity: 1, transY: '50px' }));
+export const slideDown = enterLeave('slideDown', slideIn({ opacity: 1, transY: '-50px' }), slideOut({ opacity: 1, transY: '-50px' }));
+export const slideLeft = enterLeave('slideLeft', slideIn({ opacity: 1, transX: '-50px' }), slideOut({ opacity: 1, transX: '-50px' }));
+export const slideRight = enterLeave('slideRight', slideIn({ opacity: 1, transX: '50px' }), slideOut({ opacity: 1, transX: '50px' }));

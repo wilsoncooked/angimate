@@ -1,78 +1,28 @@
 import { trigger, transition, useAnimation, animation, animate } from '@angular/animations';
 import { animIn, animOut, animWildCard, animStyle, anim,  } from './structure';
 import { Easing } from '../easing';
-
-export const rotateIn = animIn;
-export const rotateOut = animOut;
+import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
 
-export function rotateParams (rotateName, opacity, angleEnter, angleLeave ) {
-  return trigger(rotateName, [
-    transition(':enter', useAnimation(rotateIn, { params: { opacity, rotateAngle: `${angleEnter}` } })),
-    transition(':leave', useAnimation(rotateOut, { params: { opacity, rotateAngle: `${angleLeave}` } }))
-  ]);
+// WHAT
+export function rotateIn(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animIn, { params });
 }
 
-export function rotateExtendedParams (rotateName, timing, opacity, angleEnter, angleLeave, scaleX, scaleY ) {
-    return trigger(rotateName, [
-    transition(':enter', useAnimation(rotateIn, { params: { opacity, timing, rotateAngle: `${angleEnter}`, scaleX, scaleY } })),
-    transition(':leave', useAnimation(rotateOut, { params: { opacity, timing, rotateAngle: `${angleLeave}`, scaleX, scaleY } }))
-  ]);
+export function rotateOut(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animOut, { params });
 }
 
-// ROTATE //
+// Rotate //
 
-export const rotateLeft = rotateParams('rotateLeft', 0, 179.9, -179.9);
-export const rotateRight = rotateParams('rotateRight', 0, -179.9, 179.9);
-export const rotateLeftRight = rotateParams('rotateLeftRight', 0, 179.9, 179.9);
-export const rotateRightLeft = rotateParams('rotateRightLeft', 0, -179.9, -179.9);
-export const rotateLarge = rotateParams('rotateLarge', 0,  359.9, - 359.9);
-export const rotateLargeSlow = rotateExtendedParams('rotateLargeSlow', '600ms', 1,  359.9, -359.9, 1, 1);
-export const rotateLeftZoom = rotateExtendedParams('rotateLeftZoom', '600ms', 0,  179.9, -179.9, 0, 0);
-export const rotateRightZoom = rotateExtendedParams('rotateRightZoom', '600ms', 0,  -179.9, 179.9, 0, 0);
-export const rotateLeftRightZoom = rotateExtendedParams('rotateLeftRightZoom', '600ms', 0,  179.9, 179.9, 0, 0);
-export const rotateRightLeftZoom = rotateExtendedParams('rotateRightLeftZoom', '600ms', 0,  -179.9, -179.9, 0, 0);
+export const rotateLeft = enterLeave('rotateLeft', rotateIn({ rotateAngle: '179.9' }), rotateOut({ rotateAngle: '-179.9'  }));
+export const rotateRight = enterLeave('rotateRight', rotateIn({ rotateAngle: '-179.9' }), rotateOut({ rotateAngle: '179.9' }));
+export const rotateLeftRight = enterLeave('rotateLeftRight', rotateIn({ rotateAngle: '179.9' }), rotateOut({ rotateAngle: '179.9'  }));
+export const rotateRightLeft = enterLeave('rotateRightLeft', rotateIn({ rotateAngle: '-179.9' }), rotateOut({ rotateAngle: '-179.9'  }));
+export const rotateLarge = enterLeave('rotateLarge',  rotateIn({ rotateAngle: '359.9' }), rotateOut({ rotateAngle: '359.9'  }));
+export const rotateLargeSlow = enterLeave('rotateLargeSlow',  rotateIn({ timing: '600ms', rotateAngle: '359.9', opacity: 1 }), rotateOut({ timing: '600ms', rotateAngle: '-359.9', opacity: 1}));
+export const rotateLeftZoom = enterLeave('rotateLeftZoom', rotateIn({ timing: '600ms', rotateAngle: '179.9', scaleX: 0, scaleY: 0 }), rotateOut({ timing: '600ms', rotateAngle: '-179.9',  scaleX: 0, scaleY: 0 }));
+export const rotateRightZoom = enterLeave('rotateRightZoom', rotateIn({ timing: '600ms', rotateAngle: '-179.9', scaleX: 0, scaleY: 0 }), rotateOut({ timing: '600ms', rotateAngle: '179.9',  scaleX: 0, scaleY: 0 }));
+export const rotateLeftRightZoom = enterLeave('rotateLeftRightZoom', rotateIn({ timing: '600ms', rotateAngle: '179.9', scaleX: 0, scaleY: 0 }), rotateOut({ timing: '600ms', rotateAngle: '179.9',  scaleX: 0, scaleY: 0 }));
+export const rotateRightLeftZoom = enterLeave('rotateRightLeftZoom', rotateIn({ timing: '600ms', rotateAngle: '-179.9', scaleX: 0, scaleY: 0 }), rotateOut({ timing: '600ms', rotateAngle: '-179.9',  scaleX: 0, scaleY: 0 }));
 
-// ZOOM structure for useAnimation //
-   
-// export function zoomDefaultParams ( movement, opacity, scaleX, scaleY ) {
-//   return { params: { 
-//       timing: '300ms', 
-//       delay: '0s', 
-//       movement,
-//       opacity,
-//       transX: 0, 
-//       transY: 0, 
-//       transZ: 0, 
-//       scaleX,
-//       scaleY,
-//       scaleZ: 1, 
-//       rotateX: 0,
-//       rotateY: 0,
-//       rotateZ: 1,
-//       rotateAngle: 0,
-//       skewX: 0,
-//       skewY: 0,
-//       perspective: 0,
-//       origin: 'center',
-//       offset: 0,
-//     }}
-// }
-
-// export const zoom = 
-// animation([ animStyle,
-// animate( anim )], 
-// zoomDefaultParams( Easing.easeInOutCubic, 0, 0, 0 )
-// );
-
-// export const zoomEnter = 
-// animation([ animStyle,
-// animate( anim )], 
-// zoomDefaultParams( Easing.easeInCubic, 0, 0, 0 )
-// );
-
-// export const zoomLeave = 
-// animation([
-// animate( anim, animStyle )], 
-// zoomDefaultParams( Easing.easeOutCubic, 0, 0, 0 )
-// );

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY } from 'ng-animation';
+import { lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, bounce, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY } from 'ng-animation';
 
 @Component({
   selector: 'app-attention-seekers',
@@ -16,6 +16,7 @@ export class AttentionSeekersComponent implements OnInit {
   public rollRight = false; 
   public lightSpeedRight = false; 
   public lightSpeedLeft = false;
+  public bounce = false;
   public vibrate = false;
   public flash = false;
   public pulseFwd = false;
@@ -24,7 +25,7 @@ export class AttentionSeekersComponent implements OnInit {
   public jelloX = false;
   public jelloY = false;
 
-  attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'flash', 'pulseFwd', 'pulseBack', 'vibrate', 'flicker', 'jelloX', 'jelloY']
+  attentionAnims = ['rollLeft', 'rollRight', 'lightSpeedRight', 'lightSpeedLeft', 'bounce', 'flash', 'pulseFwd', 'pulseBack', 'vibrate', 'flicker', 'jelloX', 'jelloY']
 
   toggle() { 
     this.isVisible = !this.isVisible;

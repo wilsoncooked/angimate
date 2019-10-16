@@ -1,53 +1,22 @@
 import { animation, animate, trigger, transition, useAnimation } from '@angular/animations';
 import { animIn, animOut, anim, animStyle } from './structure'
 import { Easing } from '../easing'
+import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
-export function rollParams ( rollName, transX, transY, rotateAngle ) {
-  return trigger(rollName, [
-  transition(':enter', useAnimation(animIn, { params: { transX, transY, rotateAngle } })),
-  transition(':leave', useAnimation(animOut, { params: { transX, transY, rotateAngle } }))
-]);
+
+// WHAT
+export function rollIn(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animIn, { params });
 }
 
-export const rollLeft = rollParams( 'rollLeft', '-100px', 0, -120 );
-export const rollRight = rollParams( 'rollRight', '100px', 0, 120 );
-
-// Dynamic useAnimation structure //
-
-export function rollDefaultParams ( movement, transX, transY, rotateAngle ) {
-  return { params: { 
-      timing: '300ms', 
-      delay: '0s', 
-      movement,
-      opacity: 0, 
-      transX, 
-      transY, 
-      transZ: 0, 
-      scaleX: 1, 
-      scaleY: 1, 
-      scaleZ: 1, 
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 1,
-      rotateAngle,
-      skewX: 0,
-      skewY: 0,
-      perspective: 0,
-      origin: 'center',
-      offset: 0,
-    }}
+export function rollOut(params: Partial<AnimOptionParams> = {}) {
+  return useAnimation(animOut, { params });
 }
 
-export const rollEnter = 
-    animation([ animStyle,
-    animate( anim )], 
-    rollDefaultParams( Easing.easeOutCubic, '-100px', 0, -120  )
-  );
+// Roll //
 
-export const rollLeave = 
-    animation([
-    animate( anim, animStyle )], 
-    rollDefaultParams( Easing.easeInCubic, '100px', 0, 120)
-  );
+export const rollLeft = enterLeave('rollLeft', rollIn({ transX: '-100px', rotateAngle: '-120' }), rollOut({ transX: '-100px', rotateAngle: '-120'  }));
+export const rollRight = enterLeave('rollRight', rollIn({ transX: '100px', rotateAngle: '120' }), rollOut({ transX: '100px', rotateAngle: '120' }));
+
 
   

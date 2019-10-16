@@ -18,8 +18,7 @@ import {
   hBounceFwd,
   hBounceBck,
   hPush,
-  hPop,
-  hWob,
+  hPop
 } from 'ng-animation';
 
 @Component({
@@ -43,8 +42,7 @@ import {
     hBounceUp(),
     hBounceBck(),
     hPush,
-    hPop,
-    hWob(),
+    hPop
   ],
   templateUrl: './hover.component.html',
   styleUrls: ['./hover.component.scss']
@@ -70,7 +68,7 @@ export class HoverComponent implements OnInit {
   public bounceBck = false;
   public push = false;
   public pop = false;
-  public wob = false;
+
 
   constructor() { }
 

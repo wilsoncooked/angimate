@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeL, fadeUp, fadeDown, fadeRight, fadeLeft } from 'ng-animation'
-
-const  fadeAnimations = [ fadeL, fadeUp, fadeDown, fadeRight, fadeLeft]
+// import { state, trigger, style, useAnimation, animation, transition, animate } from '@angular/animations';
+import { fade, fadeUp, fadeDown, fadeRight, fadeLeft, fadeStag } from 'ng-animation'
 
 @Component({
   selector: 'app-fade',
-  animations: [ fadeAnimations ],
+  animations: [ fade, fadeUp, fadeDown, fadeRight, fadeLeft, fadeStag ],
   templateUrl: './fade.component.html',
   styleUrls: ['./fade.component.scss']
 })
@@ -15,18 +14,18 @@ export class FadeComponent implements OnInit {
   isVisible = true;
   text = true;
   selectedAnim: string; 
-  public fadeL = true;
+  public fade = true;
   public fadeUp = false;
   public fadeDown = false;
   public fadeLeft = false;
   public fadeRight = false;
+  public fadeStag = false;
 
 
-  fadeAnims = ['fadeL', 'fadeUp', 'fadeDown', 'fadeRight', 'fadeLeft' ] 
+  fadeAnims = [ 'fade','fadeUp', 'fadeDown', 'fadeRight', 'fadeLeft', 'fadeStag' ]
 
-  toggle() { 
+  toggle() {  
     this.isVisible = !this.isVisible;
-    this.text = !this.text;
   }
   
   constructor() { }

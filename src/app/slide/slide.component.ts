@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { slideUp, slideDown, slideRight, slideLeft } from 'ng-animation';
+import { slideUp, slideDown, slideRight, slideLeft} from 'ng-animation';
 
 @Component({
   selector: 'app-slide',

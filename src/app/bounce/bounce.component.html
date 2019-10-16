@@ -2,7 +2,11 @@
   <div class="animation-container">
     <ng-container *ngIf="isVisible">
       <h2 class="animate-text" *ngIf="bounce" @bounce>bounce</h2>
-      <!-- <h2 class="animate-text" *ngIf="bounceIn" @bounceIp>bounceIn</h2> -->
+      <h2 class="animate-text" *ngIf="bounceDown" @bounceDown>bounceDown</h2>
+      <h2 class="animate-text" *ngIf="bounceLeft" @bounceLeft>bounceLeft</h2>
+      <h2 class="animate-text" *ngIf="bounceRight" @bounceRight>bounceRight</h2>
+      <h2 class="animate-text" *ngIf="bounceIn" @bounceIn>bounceIn</h2>
+      <h2 class="animate-text" *ngIf="bounceInOut" @bounceInOut>bounceInOut</h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">

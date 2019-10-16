@@ -1,4 +1,4 @@
-import { trigger, transition, useAnimation, state, style, animate, animation, query, keyframes } from '@angular/animations';
+import { trigger, transition, useAnimation, state, style, animate, animation, query, keyframes, AnimationKeyframesSequenceMetadata } from '@angular/animations';
 import { animIn, animOut, animWildCard, animStyle, anim,  } from '../structure';
 import { Easing } from '../../easing';
 import { wobbleKeyframes} from '../wobble';
@@ -188,11 +188,38 @@ export const hPop = hBop('hPop', 1.1)
 
 export const idleState =  { opacity: 1, transform: 'scale(1)' };
 
-export function hWob(name='hWob', anim='800ms', keyframesName=wobbleKeyframes, transit='idle => active' ) {
-  return trigger(name, [
-  state('active', style( idleState )),
-  state('idle', style( idleState )),
-  transition(`${transit}`, animate(`${anim}`, 
-  keyframesName ))
-  ])
-}
+// export function hWob(name='hWob', transit='idle => active', anim='800ms', keyframesName=wobbleKeyframes ) {
+//   return trigger(name, [
+//   state('active', style( idleState )),
+//   state('idle', style( idleState )),
+//   transition(transit, animate(anim, keyframesName ))])
+// }
+
+// export interface HoverOptionAnim {
+//     name: string;
+//     transition?: string;
+//     duration?: string;
+//     delay?: string;
+//     easing?: string;
+//     keyframes: AnimationKeyframesSequenceMetadata;
+// }
+
+// const defaultTransition = 'idle <=> active'
+
+// export function hWob(option: Partial<HoverOptionAnim>) {
+//     return trigger(option.name, [
+//         state('active', style( idleState )),
+//         state('idle', style( idleState )),
+//         transition(
+//             option.transition || defaultTransition,
+//             animate(
+//                 `${option.duration || '300ms'} ${option.delay || '0s'} ${option.easing || Easing.easeInOutCubic}`,
+//                 option.keyframes
+//             )
+//         )
+//     ])
+//   }
+
+// export const hiHi = hWob({name: 'hiHi', keyframes: wobbleKeyframes})
+
+
