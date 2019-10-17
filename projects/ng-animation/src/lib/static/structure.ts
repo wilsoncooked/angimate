@@ -11,7 +11,7 @@ export interface AnimationParams extends OtherAnimateParams {
     toY: string | number;
     }
     
-    export const anim = '{{ timing }} {{ delay }} {{ movement }}';
+    export const anim = '{{ timing }} {{ delay }} {{ easing }}';
     export const animStyle =  
         style({
                 opacity: '{{ opacity }}',
@@ -19,7 +19,7 @@ export interface AnimationParams extends OtherAnimateParams {
                     perspective({{ perspective }})
                     translate3d({{ transX }}, {{ transY }}, {{ transZ }}) 
                     scale3d({{ scaleX }}, {{ scaleY }}, {{ scaleZ }}) 
-                    rotate3d({{ rotateX }}, {{ rotateY }}, {{ rotateZ }}, {{ rotateAngle }}deg)
+                    rotate3d({{ rotateX }}, {{ rotateY }}, {{ rotateZ }}, {{ rotateAngle }})
                     skew({{ skewX }}, {{ skewY }})
                     `,
                 'transform-origin': '{{ origin }}',
@@ -29,11 +29,11 @@ export interface AnimationParams extends OtherAnimateParams {
 
 
     
-    export function animActiveParams ( movement ) {
+    export function animActiveParams ( easing ) {
         return { params: { 
             timing: '300ms', 
             delay: '0s', 
-            movement,
+            easing,
             opacity: 0, 
             transX: 0, 
             transY: 0, 
@@ -56,7 +56,7 @@ export interface AnimationParams extends OtherAnimateParams {
 export interface AnimOptionParams {
   timing: string;
   delay: string;
-  movement: string;
+  easing: string;
   opacity: number;
   transX: string;
   transY: string;

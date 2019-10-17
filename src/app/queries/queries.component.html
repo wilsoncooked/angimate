@@ -1,0 +1,45 @@
+<div class="query-wrapper">
+  <div class="animation-container">
+    <ng-container *ngIf="isVisible">
+      <ul class="animate-text" *ngIf="qsfade" @qsfade>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+      <ul class="animate-text" *ngIf="qsfadeLeft" @qsfadeLeft>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+      <ul class="animate-text" *ngIf="qsfadeRight" @qsfadeRight>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+      <ul class="animate-text" *ngIf="qsfadeUp" @qsfadeUp>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+      <ul class="animate-text" *ngIf="qsfadeDown" @qsfadeDown>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+      </ul>
+    </ng-container>
+  </div>
+  <mat-slide-toggle (click)="toggle()" [checked]="checked">
+    Toggle Animation
+  </mat-slide-toggle>
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [class.selected]="anim === selectedAnim"
+      (click)="animate(anim)"
+      *ngFor="let anim of queryAnims"
+    >
+      {{ anim }}
+    </button>
+  </div>
+</div>

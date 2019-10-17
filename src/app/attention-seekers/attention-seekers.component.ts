@@ -3,7 +3,7 @@ import { lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, bounce, flash, ro
 
 @Component({
   selector: 'app-attention-seekers',
-  animations: [ lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY ],
+  animations: [ lightSpeedRight, lightSpeedLeft, pulseFwd, pulseBack, bounce, flash, rollLeft, rollRight, vibrate, flicker, jelloX, jelloY ],
   templateUrl: './attention-seekers.component.html',
   styleUrls: ['./attention-seekers.component.scss']
 })

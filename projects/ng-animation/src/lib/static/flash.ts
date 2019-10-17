@@ -27,7 +27,7 @@ export const flash = trigger('flash', [
 export const rainbowFlashStyle = 
     keyframes([
         style({ color: "red", offset: 0 }),
-        style({ color: "pink", offset: 0.1  }),
+        style({ color: "pink", offset: 0.1 }),
         style({ color: "blue", offset: 0.2 }),
         style({ color: "yellow", offset: 0.3 }),
         style({ color: "green", offset: 0.4 }),

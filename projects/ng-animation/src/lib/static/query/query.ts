@@ -1,8 +1,8 @@
 import { trigger, transition, useAnimation, query, state, style, animate, keyframes, stagger } from '@angular/animations';
 import { animIn, animOut, queryAnimIn } from '../structure'
-import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from '../structure';
+import { AnimOptionParams, QueryOptionAnim } from '../structure';
 
-export function fadeList (name: string, option: Partial<AnimOptionParams> & QueryOptionAnim) {
+export function queryList (name: string, option: Partial<AnimOptionParams> & QueryOptionAnim) {
     return trigger(name, [
     transition(':enter', 
       query(option.query, [
@@ -14,5 +14,8 @@ export function fadeList (name: string, option: Partial<AnimOptionParams> & Quer
   }
   
   
-  export const fadeStag = fadeList('fadeStag', { query: 'li', stagger: '300ms', transX: '40px', } );
-  
+  export const qsfade = queryList('qsfade', { query: 'li', stagger: '1s'});
+  export const qsfadeLeft = queryList('qsfadeLeft', { query: 'li', transX: '-50px' });
+  export const qsfadeRight = queryList('qsfadeRight', { query: 'li', transX: '50px' });
+  export const qsfadeUp = queryList('qsfadeUp', { query: 'li', transY: '50px' });
+  export const qsfadeDown = queryList('qsfadeDown', { query: 'li', transY: '-50px' });

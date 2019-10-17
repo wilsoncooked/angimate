@@ -1,16 +1,46 @@
 <div class="fade-wrapper">
   <div class="animation-container">
-    <ng-container *ngIf="isVisible">
-      <h2 class="animate-text" *ngIf="fade" @fade>fade</h2>
-      <h2 class="animate-text" *ngIf="fadeUp" @fadeUp>fadeUp</h2>
-      <h2 class="animate-text" *ngIf="fadeDown" @fadeDown>fadeDown</h2>
-      <h2 class="animate-text" *ngIf="fadeLeft" @fadeLeft>fadeLeft</h2>
-      <h2 class="animate-text" *ngIf="fadeRight" @fadeRight>fadeRight</h2>
-      <ul class="animate-text" *ngIf="fadeStag" @fadeStag>
-        <li>one</li>
-        <li>two</li>
-        <li>three</li>
-      </ul>
+    <ng-container>
+      <h2
+        class="animate-text"
+        *ngIf="state === 'fade'"
+        @fade
+        (@fade.done)="displayNextAnimation($event)"
+      >
+        fade
+      </h2>
+      <h2
+        *ngIf="state === 'fadeUp'"
+        class="animate-text"
+        @fadeUp
+        (@fadeUp.done)="displayNextAnimation()"
+      >
+        fadeUp
+      </h2>
+      <h2
+        class="animate-text"
+        *ngIf="state === 'fadeDown'"
+        @fadeDown
+        (@fadeDown.done)="displayNextAnimation()"
+      >
+        fadeDown
+      </h2>
+      <h2
+        *ngIf="state === 'fadeLeft'"
+        class="animate-text"
+        @fadeLeft
+        (@fadeLeft.done)="displayNextAnimation()"
+      >
+        fadeLeft
+      </h2>
+      <h2
+        *ngIf="state === 'fadeRight'"
+        class="animate-text"
+        @fadeRight
+        (@fadeRight.done)="displayNextAnimation()"
+      >
+        fadeRight
+      </h2>
     </ng-container>
   </div>
   <mat-slide-toggle (click)="toggle()" [checked]="checked">
@@ -20,8 +50,7 @@
     <button
       mat-raised-button
       color="primary"
-      [class.selected]="anim === selectedAnim"
-      (click)="animate(anim)"
+      (click)="prepareNextAnimation(anim)"
       *ngFor="let anim of fadeAnims"
     >
       {{ anim }}

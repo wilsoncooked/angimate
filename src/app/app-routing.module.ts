@@ -14,6 +14,7 @@ import { UseAnimationComponent } from './use-animation/use-animation.component'
 import { ShakeComponent } from './shake/shake.component';
 import { WobbleComponent } from './wobble/wobble.component';
 import { HoverComponent } from './hover/hover.component';
+import { QueriesComponent } from './queries/queries.component'
 
 const routes: Routes = [
   { path: 'fade', component: FadeComponent, data: {animation: 'fade'} },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'use-animation', component: UseAnimationComponent },
   { path: 'shake', component: ShakeComponent },
   { path: 'wobble', component: WobbleComponent},
-  { path: 'hover', component: HoverComponent }
+  { path: 'hover', component: HoverComponent },
+  { path: 'queries', component: QueriesComponent }
 ];
 
 @NgModule({
@@ -50,5 +52,6 @@ export const routingComponents = [
   FlipComponent,
   ShakeComponent,
   WobbleComponent,
-  HoverComponent
+  HoverComponent,
+  QueriesComponent
 ]
