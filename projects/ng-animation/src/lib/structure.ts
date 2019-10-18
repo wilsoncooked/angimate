@@ -1,7 +1,5 @@
-
 import { animation, style, animate, trigger, transition, useAnimation, stagger } from '@angular/animations';
 import { Easing } from './easing';
-
 
 export interface OtherAnimateParams {
   durations: string;
@@ -32,8 +30,6 @@ export interface AnimationParams extends OtherAnimateParams {
                 offset: '{{ offset }}',
                 'backface-visibility': 'visible',
         });
-
-
     
     export function animActiveParams ( easing ) {
         return { params: { 
@@ -80,7 +76,6 @@ export interface AnimOptionParams {
   origin: string;
   offset: number;
 }
-
 
 export const animIn = 
     animation([ animStyle,
