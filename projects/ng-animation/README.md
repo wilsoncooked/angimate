@@ -31,7 +31,7 @@ export class BounceComponent {}
 ```
 Then attach the animation to a html element by entering its name preceded with an `@` symbol.
 
-You can import as many animations as you like by importing multiple names separated by a `,` and calling these names in the same way inside of `animations: []`
+You can import multiple animations by importing their names separated by a `,` and calling these names in the same way inside of `animations: []`
 ```typescript
 // bounce.component.ts
 import { Component } from '@angular/core';
