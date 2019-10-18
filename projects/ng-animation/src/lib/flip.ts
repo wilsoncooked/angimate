@@ -1,13 +1,5 @@
 import { style, animate, keyframes, transition, trigger, animation } from '@angular/animations';
-import { AnimateParams, enterAnime, leaveAnime } from '../anime';
-
-
-export interface FlipParams extends AnimateParams {
-  perspective: string;
-  rotateX: number | string;
-  rotateY: number | string;
-  rotateZ: number | string;
-}
+import { AnimOptionParams } from './structure'
 
 // F L I P   I N //
 

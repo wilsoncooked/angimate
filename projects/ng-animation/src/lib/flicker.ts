@@ -1,4 +1,4 @@
-import { style, animate, keyframes, transition, trigger, animation } from '@angular/animations';
+import { style, animate, keyframes, transition, trigger } from '@angular/animations';
 
 export const flickerKeyframes = keyframes([
   style({

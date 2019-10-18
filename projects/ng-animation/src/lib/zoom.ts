@@ -1,6 +1,6 @@
 import { trigger, transition, useAnimation, state, style, animate, animation } from '@angular/animations';
 import { animIn, animOut, animWildCard, animStyle, anim,  } from './structure';
-import { Easing } from '../easing';
+import { Easing } from './easing';
 import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
 // WHAT

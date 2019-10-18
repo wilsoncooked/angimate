@@ -1,5 +1,5 @@
 import { style, animate, keyframes, transition, trigger, animation } from '@angular/animations';
-import { Easing } from '../easing'
+import { Easing } from './easing'
 
 export const swingLeftKeyframes = keyframes([
     style({

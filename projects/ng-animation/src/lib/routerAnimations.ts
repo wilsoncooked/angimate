@@ -1,12 +1,6 @@
 //                                                 alias 
 import { animation, trigger, transition, style, query as q, animate, group, animateChild,  } from '@angular/animations';
-import { AnimateParams, animIn, animOut } from './anime';
 
-export interface RouterFadeParams extends AnimateParams {
-  opacity: number;
-  x: string | number;
-  y: string | number;
-}
 
 export const routerFadeIn = 
 style({

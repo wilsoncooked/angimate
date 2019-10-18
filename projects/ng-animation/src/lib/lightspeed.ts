@@ -1,6 +1,5 @@
 import { animate, animation, keyframes, style, useAnimation, transition, trigger } from '@angular/animations';
-import { animIn, animOut } from './structure'
-import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
+import { AnimOptionParams, animIn, animOut, QueryOptionAnim, enter, leave, enterLeave } from './structure';
 
 
 // WHAT

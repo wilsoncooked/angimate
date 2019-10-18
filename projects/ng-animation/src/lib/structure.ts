@@ -1,7 +1,13 @@
 
 import { animation, style, animate, trigger, transition, useAnimation, stagger } from '@angular/animations';
-import { OtherAnimateParams, enterAnime, leaveAnime } from '../anime';
-import { Easing } from '../easing';
+import { Easing } from './easing';
+
+
+export interface OtherAnimateParams {
+  durations: string;
+  delay: string;
+  movement: string;
+}
 
 export interface AnimationParams extends OtherAnimateParams {
     opacity: number;
@@ -11,7 +17,7 @@ export interface AnimationParams extends OtherAnimateParams {
     toY: string | number;
     }
     
-    export const anim = '{{ timing }} {{ delay }} {{ easing }}';
+    export const anim = '{{ duration }} {{ delay }} {{ easing }}';
     export const animStyle =  
         style({
                 opacity: '{{ opacity }}',
@@ -31,7 +37,7 @@ export interface AnimationParams extends OtherAnimateParams {
     
     export function animActiveParams ( easing ) {
         return { params: { 
-            timing: '300ms', 
+            duration: '300ms', 
             delay: '0s', 
             easing,
             opacity: 0, 
@@ -54,7 +60,7 @@ export interface AnimationParams extends OtherAnimateParams {
       }
 
 export interface AnimOptionParams {
-  timing: string;
+  duration: string;
   delay: string;
   easing: string;
   opacity: number;
@@ -136,7 +142,3 @@ export function queryAnimIn(staggerDelay: string) {
     animActiveParams( Easing.easeOutCubic)
     );
 }
-
-
-
-

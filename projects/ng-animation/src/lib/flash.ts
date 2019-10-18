@@ -1,10 +1,4 @@
-import { animation, trigger, transition, style, animate, keyframes, useAnimation, query, stagger } from '@angular/animations';
-import { AnimateParams, enterAnime, leaveAnime } from '../anime';
-
-// Params
-export interface FlashParams extends AnimateParams {
-  opacity: number;
-}
+import { animation, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
 // Flash Style
 export const flashStyle = 

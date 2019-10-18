@@ -1,10 +1,6 @@
 import { trigger, transition, useAnimation, query, state, style, animate, keyframes, stagger } from '@angular/animations';
-import { animIn, animOut, queryAnimIn } from './structure'
-import { hScale } from './hover/hover-2d';
-import { idleState } from './hover/hover-keyframes';
-import { Easing } from '../easing';
-import { AnimOptionParams, QueryOptionAnim, enter, leave, enterLeave } from './structure';
-
+import { animIn, animOut, AnimOptionParams, enterLeave} from './structure'
+import { Easing } from './easing';
 
 // WHAT
 export function fadeIn(params: Partial<AnimOptionParams> = {}) {

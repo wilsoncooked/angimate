@@ -1,16 +1,13 @@
-import { trigger, transition, useAnimation, state, style, animate, animation, query, keyframes, AnimationKeyframesSequenceMetadata } from '@angular/animations';
-import { animIn, animOut, animWildCard, animStyle, anim,  } from '../structure';
-import { Easing } from '../../easing';
-import { wobbleKeyframes} from '../wobble';
-
+import { trigger, transition, state, style, animate, keyframes } from '@angular/animations';
+import { Easing } from '../easing';
 
 // B O U N C E //
 // Bounce Up //
 export function hBounceUp(name='hBounceUp', duration='1s' ) {
     return trigger(name, [
-        state('active', style({ opacity: 1 })),
-        state('idle', style({ opacity: 1 })),
-    transition('idle => active', animate(`${duration}`, 
+        state('true', style({ opacity: 1 })),
+        state('false', style({ opacity: 1 })),
+    transition('false => true', animate(`${duration}`, 
     keyframes([  
       style({
         'animation-timing-function': Easing.easeOutQuint,
@@ -56,13 +53,12 @@ export function hBounceUp(name='hBounceUp', duration='1s' ) {
   }
   
 // Bounce Forward //
-
   export function hBounceFwd(name='hBounceFwd', duration='1s', returnDuration='200ms', movement=Easing.easeOutCubic ) {
     return trigger(name, [
-    state('active', style({ transform: 'scale(1.15)' })),
-    state('idle', style({ opacity: 1 })),
-    transition('active => idle', animate(`${returnDuration} ${movement}`)),
-    transition('idle => active', animate(`${duration}`, 
+    state('true', style({ transform: 'scale(1.15)' })),
+    state('false', style({ opacity: 1 })),
+    transition('true => false', animate(`${returnDuration} ${movement}`)),
+    transition('false => true', animate(`${duration}`, 
     keyframes([  
       style({
         'animation-timing-function': Easing.easeOutQuint,
@@ -109,10 +105,10 @@ export function hBounceUp(name='hBounceUp', duration='1s' ) {
   
   export function hBounceBck(name='hBounceBck', duration='1s', returnDuration='200ms', movement=Easing.easeOutCubic ) {
     return trigger(name, [
-    state('active', style({ transform: 'scale(0.85)' })),
-    state('idle', style({ opacity: 1 })),
-    transition('active => idle', animate(`${returnDuration} ${movement}`)),
-    transition('idle => active', animate(`${duration}`, 
+    state('true', style({ transform: 'scale(0.85)' })),
+    state('false', style({ opacity: 1 })),
+    transition('true => false', animate(`${returnDuration} ${movement}`)),
+    transition('false => true', animate(`${duration}`, 
     keyframes([  
       style({
         'animation-timing-function': Easing.easeOutQuint,
@@ -162,9 +158,9 @@ export function hBounceUp(name='hBounceUp', duration='1s' ) {
 
 export function hBop(name='hBop', size=0.9, duration='300ms' ) {
     return trigger(name, [
-    state('active', style({ transform: 'scale(1)' })),
-    state('idle', style({ opacity: 1 })),
-    transition('idle => active', animate(`${duration}`, 
+    state('true', style({ transform: 'scale(1)' })),
+    state('false', style({ opacity: 1 })),
+    transition('false => true', animate(`${duration}`, 
     keyframes([  
       style({
         'animation-timing-function': Easing.easeOutQuint,
@@ -182,44 +178,4 @@ export function hBop(name='hBop', size=0.9, duration='300ms' ) {
 
 export const hPush = hBop('hPush')
 export const hPop = hBop('hPop', 1.1)
-
-
-// W O B B L E 
-
-export const idleState =  { opacity: 1, transform: 'scale(1)' };
-
-// export function hWob(name='hWob', transit='idle => active', anim='800ms', keyframesName=wobbleKeyframes ) {
-//   return trigger(name, [
-//   state('active', style( idleState )),
-//   state('idle', style( idleState )),
-//   transition(transit, animate(anim, keyframesName ))])
-// }
-
-// export interface HoverOptionAnim {
-//     name: string;
-//     transition?: string;
-//     duration?: string;
-//     delay?: string;
-//     easing?: string;
-//     keyframes: AnimationKeyframesSequenceMetadata;
-// }
-
-// const defaultTransition = 'idle <=> active'
-
-// export function hWob(option: Partial<HoverOptionAnim>) {
-//     return trigger(option.name, [
-//         state('active', style( idleState )),
-//         state('idle', style( idleState )),
-//         transition(
-//             option.transition || defaultTransition,
-//             animate(
-//                 `${option.duration || '300ms'} ${option.delay || '0s'} ${option.easing || Easing.easeInOutCubic}`,
-//                 option.keyframes
-//             )
-//         )
-//     ])
-//   }
-
-// export const hiHi = hWob({name: 'hiHi', keyframes: wobbleKeyframes})
-
 

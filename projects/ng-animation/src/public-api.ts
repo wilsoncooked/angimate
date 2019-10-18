@@ -1,29 +1,26 @@
 /*
- * Public API Surface of ng-animation
+ * Public API Surface of angimate
  */
 
-export * from './lib/ng-animation.module';
-export * from './lib/static/fade';
-export * from './lib/static/flash';
-export * from './lib/static/pulse';
+export * from './lib/angimate.module';
+export * from './lib/bounce';
+export * from './lib/fade';
+export * from './lib/flash';
+export * from './lib/flicker';
+export * from './lib/flip';
+export * from './lib/hover/hovers';
+export * from './lib/hover/hover-keyframes';
+export * from './lib/hover/hover.directive';
+export * from './lib/jello';
+export * from './lib/lightspeed';
+export * from './lib/pulse';
+export * from './lib/queries';
+export * from './lib/roll';
+export * from './lib/rotate';
 export * from './lib/routerAnimations';
-export * from './lib/static/slide';
-export * from './lib/static/zoom';
-export * from './lib/static/hover/hover.directive';
-export * from './lib/static/roll';
-export * from './lib/static/flip';
-export * from './lib/static/lightspeed';
-export * from './lib/static/bounce/bounce';
-export * from './lib/static/bounce/bounce-scale';
-// export * from './lib/static/bounce/bounce-out'
-export * from './lib/static/rotate';
-export * from './lib/static/vibrate';
-export * from './lib/static/flicker';
-export * from './lib/static/shake';
-export * from './lib/static/jello';
-export * from './lib/static/wobble';
-export * from './lib/static/swing';
-export * from './lib/static/hover/hover-2d';
-export * from './lib/static/hover/hover-border';
-export * from './lib/static/hover/hover-keyframes';
-export * from './lib/static/query/query';
+export * from './lib/shake';
+export * from './lib/slide';
+export * from './lib/swing';
+export * from './lib/vibrate';
+export * from './lib/wobble';
+export * from './lib/zoom';
