@@ -10,7 +10,6 @@ export * from './lib/flicker';
 export * from './lib/flip';
 export * from './lib/hover/hovers';
 export * from './lib/hover/hover-keyframes';
-export * from './lib/hover/hover.directive';
 export * from './lib/jello';
 export * from './lib/lightspeed';
 export * from './lib/pulse';

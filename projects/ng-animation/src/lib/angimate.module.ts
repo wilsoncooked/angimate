@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
-import { HoverDirective } from './hover/hover.directive'
-
-const directives = [
-  HoverDirective
-]
 
 @NgModule({
-  declarations: [ directives ],
+  declarations: [  ],
   imports: [
   ],
-  exports: [ directives ] 
+  exports: [  ] 
 })
 export class NgAnimationModule { }

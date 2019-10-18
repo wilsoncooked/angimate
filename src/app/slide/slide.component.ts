@@ -33,6 +33,5 @@ export class SlideComponent implements OnInit {
   animate(animName:string) {
     // this.selectedAnim = animName;
     this[animName] = !this[animName];
-    console.log(this[animName])
   }
 }

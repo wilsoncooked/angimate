@@ -13,7 +13,6 @@ import {
   hRight, 
   hSkewRight, 
   hSkewLeft, 
-  hBorderFade, 
   hBounceUp,
   hBounceFwd,
   hBounceBck,
@@ -37,7 +36,6 @@ import {
     hRight,  
     hSkewRight, 
     hSkewLeft, 
-    hBorderFade,
     hBounceFwd(),
     hBounceUp(),
     hBounceBck(),
@@ -62,7 +60,6 @@ export class HoverComponent implements OnInit {
   public right = false;
   public skewRight = false;
   public skewLeft = false;
-  public borderFade = false;
   public bounce = false;
   public bounceFwd = false;
   public bounceBck = false;

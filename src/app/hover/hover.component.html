@@ -2,7 +2,7 @@
   <div class="animation-container">
     <h3
       class="animate-text"
-      [@hGrow]="grow ? 'active' : 'idle'"
+      [@hGrow]="grow"
       (mouseenter)="grow = true"
       (mouseleave)="grow = false"
     >
@@ -10,7 +10,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hGrowSlow]="growSlow ? 'active' : 'idle'"
+      [@hGrowSlow]="growSlow"
       (mouseenter)="growSlow = true"
       (mouseleave)="growSlow = false"
     >
@@ -18,7 +18,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hGrowQuick]="growQuick ? 'active' : 'idle'"
+      [@hGrowQuick]="growQuick"
       (mouseenter)="growQuick = true"
       (mouseleave)="growQuick = false"
     >
@@ -26,7 +26,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hShrink]="shrink ? 'active' : 'idle'"
+      [@hShrink]="shrink"
       (mouseenter)="shrink = true"
       (mouseleave)="shrink = false"
     >
@@ -34,7 +34,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hShrinkSlow]="shrinkSlow ? 'active' : 'idle'"
+      [@hShrinkSlow]="shrinkSlow"
       (mouseenter)="shrinkSlow = true"
       (mouseleave)="shrinkSlow = false"
     >
@@ -42,7 +42,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hShrinkQuick]="shrinkQuick ? 'active' : 'idle'"
+      [@hShrinkQuick]="shrinkQuick"
       (mouseenter)="shrinkQuick = true"
       (mouseleave)="shrinkQuick = false"
     >
@@ -50,7 +50,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hRotate]="rotate ? 'active' : 'idle'"
+      [@hRotate]="rotate"
       (mouseenter)="rotate = true"
       (mouseleave)="rotate = false"
     >
@@ -58,7 +58,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hDown]="down ? 'active' : 'idle'"
+      [@hDown]="down"
       (mouseenter)="down = true"
       (mouseleave)="down = false"
     >
@@ -66,7 +66,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hUp]="up ? 'active' : 'idle'"
+      [@hUp]="up"
       (mouseenter)="up = true"
       (mouseleave)="up = false"
     >
@@ -74,7 +74,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hLeft]="left ? 'active' : 'idle'"
+      [@hLeft]="left"
       (mouseenter)="left = true"
       (mouseleave)="left = false"
     >
@@ -82,7 +82,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hRight]="right ? 'active' : 'idle'"
+      [@hRight]="right"
       (mouseenter)="right = true"
       (mouseleave)="right = false"
     >
@@ -90,7 +90,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hSkewRight]="skewRight ? 'active' : 'idle'"
+      [@hSkewRight]="skewRight"
       (mouseenter)="skewRight = true"
       (mouseleave)="skewRight = false"
     >
@@ -98,7 +98,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hSkewLeft]="skewLeft ? 'active' : 'idle'"
+      [@hSkewLeft]="skewLeft"
       (mouseenter)="skewLeft = true"
       (mouseleave)="skewLeft = false"
     >
@@ -106,15 +106,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hBorderFade]="borderFade ? 'active' : 'idle'"
-      (mouseenter)="borderFade = true"
-      (mouseleave)="borderFade = false"
-    >
-      borderFade
-    </h3>
-    <h3
-      class="animate-text"
-      [@hBounceUp]="bounce ? 'active' : 'idle'"
+      [@hBounceUp]="bounce"
       (mouseenter)="bounce = true"
       (mouseleave)="bounce = false"
     >
@@ -122,7 +114,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hBounceFwd]="bounceFwd ? 'active' : 'idle'"
+      [@hBounceFwd]="bounceFwd"
       (mouseenter)="bounceFwd = true"
       (mouseleave)="bounceFwd = false"
     >
@@ -130,7 +122,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hBounceBck]="bounceBck ? 'active' : 'idle'"
+      [@hBounceBck]="bounceBck"
       (mouseenter)="bounceBck = true"
       (mouseleave)="bounceBck = false"
     >
@@ -138,7 +130,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hPush]="push ? 'active' : 'idle'"
+      [@hPush]="push"
       (mouseenter)="push = true"
       (mouseleave)="push = false"
     >
@@ -146,7 +138,7 @@
     </h3>
     <h3
       class="animate-text"
-      [@hPop]="pop ? 'active' : 'idle'"
+      [@hPop]="pop"
       (mouseenter)="pop = true"
       (mouseleave)="pop = false"
     >
